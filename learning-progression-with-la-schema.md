@@ -33,6 +33,7 @@ This progression is the culmination of the first part of the course, in which we
   - exported  
   - non-exported?  (if not, show another library)  
 - classes  
+- comments!!!  
 
 ##### Exported functions
 
@@ -54,10 +55,21 @@ This progression is the culmination of the first part of the course, in which we
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-
+1. `[<lernact-prac>]`Organize your screensavers program like the [`game.ts` library](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) and write the main program at the very bottom. 
+2. `[<lernact-prac>]`For each global variable, function, and class method, write a descriptive comment, on the side of the variables and on top for the functions/methods. Remember the _last repository commit_ of this process.    
 
 #### 3. Present
 [[toc](#table-of-contents)]
+
+In the [programs](programs) directory:
+1. Add your program from 9.2.1 with filename `microbit-program-9-2-1.js`.  
+2. Add your program from 9.2.2 with filename `microbit-program-9-2-2.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 9.2.1.  
+2. Link to a demo video showing the execution of the program from 9.2.1.  
+3. Link to the program from 9.2.2.  
+4. Link to a demo video showing the execution of the program from 9.2.2.  
 
    
 ### 10. Iterative development with Github  
@@ -80,6 +92,9 @@ This progression is the culmination of the first part of the course, in which we
 - pull  
 - push
 
+- creating directories  
+- mv, rm  
+
 ##### Github workflow
 
 - branches & merging  
@@ -90,14 +105,26 @@ This progression is the culmination of the first part of the course, in which we
 ##### Incremental development
 
 - incremental development example  
+- [tag_example](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+1. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your entries in the Lab Notebook._   
+2. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your entries in the Lab Notebook._  
+3. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
 
 #### 3. Present
 [[toc](#table-of-contents)]
    
+In the [programs](programs) directory:
+1. Add your program from 10.2.3 with filename `screensavers.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the `v0.8`.  
+2. Link to the `v0.9`.  
+3. Link to the `v1.0`.  
+
 
 ### 11. Reactive system  
 [[toc](#table-of-contents)]
