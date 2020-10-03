@@ -132,7 +132,41 @@ In the [Lab Notebook](README.md):
 #### 1. Study
 [[toc](#table-of-contents)]
 
+##### Software stack
+
+- Advanced material: [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
+- **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
+  - Issues of speed, memory, etc.  
+  - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
+  - (Brendan) Does a time slice have to end for event handling to proceed?  
+
+- TS runtime  
+- micro:bit runtime (aka DAL)  
+- mbed OS  
+  - drivers  
+  - processor development kit  
+
+##### Fiber scheduling 
+
+- [reactive system](https://makecode.microbit.org/device/reactive)  
+- threads  
+- fibers  
+- scheduling  
+
+##### Function arguments 
+
+- registrant functions and funcion arguments  
+- `basic`  
+- `input`  
+- etc.  
+- Why you shouldn't have event handling in a `forever` loop  
+- How is `pause` executed and what is affected (e.g. other repeated behavior, event handling, etc.)  
+  - `pause()` should be avoided, especially with multiple `forever()` loops  
+
+##### `forever` vs `while`
+
 `forever` function vs `while` loop  
+
 feature | `forever` | `while`
 -- | -- | --
 condition | no | yes
@@ -140,18 +174,14 @@ condition | no | yes
 scheduling | yes | no
 simulator fidelity | yes | no
 
-    - [reactive system](https://makecode.microbit.org/device/reactive)  
-    - Why you shouldn't have event handling in a `forever` loop  
-    - How is `pause` executed and what is affected (e.g. other repeated behavior, event handling, etc.)  
-      - `pause()` should be avoided, especially with multiple `forever()` loops  
-    - Advanced material: [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
-      - **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
-      - Issues of speed, memory, etc.  
-      - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
-      - (Brendan) Does a time slice have to end for event handling to proceed?  
-
 #### 2. Apply
 [[toc](#table-of-contents)]
+
+**TODO: Experiments?**  
+1. `[<lernact-prac>]`
+2. `[<lernact-prac>]`
+3. `[<lernact-prac>]`
+
 #### 3. Present
 [[toc](#table-of-contents)]
    
