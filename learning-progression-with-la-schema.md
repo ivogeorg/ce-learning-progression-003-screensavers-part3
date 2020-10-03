@@ -2,23 +2,6 @@
 
 This is learning progression 003 for the Fall 2020 installment of the course CPE 1040: Introduction to Computer Engineering at MSU Denver.
 
-    * [9\. Code reading](#9-code-reading)
-      * [1\. Study](#1-study-8)
-      * [2\. Apply](#2-apply-8)
-      * [3\. Present](#3-present-8)
-    * [10\. Iterative development with Github](#10-iterative-development-with-github)
-      * [1\. Study](#1-study-9)
-      * [2\. Apply](#2-apply-9)
-      * [3\. Present](#3-present-9)
-    * [11\. Reactive system](#11-reactive-system)
-      * [1\. Study](#1-study-10)
-      * [2\. Apply](#2-apply-10)
-      * [3\. Present](#3-present-10)
-    * [12\. Matrix dynamics](#12-matrix-dynamics)
-      * [1\. Study](#1-study-11)
-      * [2\. Apply](#2-apply-11)
-      * [3\. Present](#3-present-11)
-
 
 ## Learning Progression 003: Screensavers (Part 1)
 [[toc](#table-of-contents)]
@@ -31,6 +14,32 @@ This progression is the culmination of the first part of the course, in which we
 
 #### 1. Study
 [[toc](#table-of-contents)]
+
+##### game.ts
+
+- what is a library?  
+- how does this actually get into MakeCode?  
+- what are these annotations?  
+- what other files does it depend on?  
+
+##### enum types
+
+- `Direction`  
+- `LedSpriteProperty`  
+
+##### Namespace `game`
+
+- functions
+  - exported  
+  - non-exported?  (if not, show another library)  
+- classes  
+
+##### Exported functions
+
+- `createSprite`  
+- game-related  
+
+##### Class `LedSprite`
 
 [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts)  
    - export  
@@ -45,6 +54,8 @@ This progression is the culmination of the first part of the course, in which we
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+
+
 #### 3. Present
 [[toc](#table-of-contents)]
 
@@ -55,18 +66,39 @@ This progression is the culmination of the first part of the course, in which we
 #### 1. Study
 [[toc](#table-of-contents)]
 
-   - status, add, commit, pull, push  
-   - remote & local (git SCM)  
-   - Github workflow (pull requests, Github Classroom **Feedback**)  
-   - informative commit messages  
-   - releases & tags  
-   - incremental development example
+##### Git command line
+
+##### Git remote and local
+
+##### Git commands
+
+- init  
+- status
+- add  
+- commit  
+  - informative messages  
+- pull  
+- push
+
+##### Github workflow
+
+- branches & merging  
+- pull requests (strictly Github)  
+- Github Classroom **Feedback**)  
+- releases & tags  
+
+##### Incremental development
+
+- incremental development example  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
+
+
 #### 3. Present
 [[toc](#table-of-contents)]
    
+
 ### 11. Reactive system  
 [[toc](#table-of-contents)]
 
@@ -96,6 +128,7 @@ simulator fidelity | yes | no
 #### 3. Present
 [[toc](#table-of-contents)]
    
+
 ### 12. Matrix dynamics  
 [[toc](#table-of-contents)]
 
