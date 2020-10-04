@@ -153,7 +153,7 @@ In the [Lab Notebook](README.md):
 - fibers  
 - scheduling  
 
-##### Function arguments 
+##### Registrant functions 
 
 - registrant functions and funcion arguments  
 - `basic`  
