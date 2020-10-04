@@ -219,13 +219,25 @@ simulator fidelity | yes | no
 [[toc](#table-of-contents)]
 
 **TODO: Experiments?**  
-1. `[<lernact-prac>]`
-2. `[<lernact-prac>]`
-3. `[<lernact-prac>]`
+1. `[<lernact-prac>]`Create 6 separate `forever` loops, each one containing `showNumber()` with one of the numbers n = 1, 3, 5, 7, 9, 11, 13. Describe the behavior. Can you see all the numbers clearly?  
+2. `[<lernact-prac>]`Modify the previous program to show the either n or n + 1 toggled by pressing button A. Describe the behavior. How soon do the numbers switch after you press the button?  
+3. `[<lernact-prac>]`Modify the previous program, adding a random `pause()` between 300 and 1200 ms after `showNumber()`. Describe the behavior. Can you see the numbers our of order?   
 
 #### 3. Present
 [[toc](#table-of-contents)]
    
+In the [programs](programs) directory:
+1. Add your program from 11.2.1 with filename `microbit-program-11-2-1.js`.  
+2. Add your program from 11.2.2 with filename `microbit-program-11-2-2.js`.  
+3. Add your program from 11.2.3 with filename `microbit-program-11-2-3.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 11.2.1 and describe its behavior.  
+2. Link to a demo video showing the execution of the program from 11.2.1.  
+3. Link to the program from 11.2.2 and describe its behavior.  
+4. Link to a demo video showing the execution of the program from 11.2.2.  
+5. Link to the program from 11.2.3 and describe its behavior.  
+6. Link to a demo video showing the execution of the program from 11.2.3.  
 
 ### 12. Matrix dynamics  
 [[toc](#table-of-contents)]
