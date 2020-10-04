@@ -162,9 +162,9 @@ In the [programs](programs) directory:
 1. Add your program from 10.2.3 with filename `screensavers.js`.  
 
 In the [Lab Notebook](README.md):
-1. Link to the `v0.8`.  
-2. Link to the `v0.9`.  
-3. Link to the `v1.0`.  
+1. Link to the `v0.8` tag.  
+2. Link to the `v0.9` tag.  
+3. Link to the `v1.0` tag.  
 
 
 ### 11. Reactive system  
