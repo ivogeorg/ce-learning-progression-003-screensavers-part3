@@ -288,6 +288,7 @@ In the [Lab Notebook](README.md):
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+**TODO** This is probably the most challenging screensaver. Expand to include everything learned, systematically organized into a unified software engineering experience!  
 1. `[<lernact-prac>]`Snakes screensaver sub-program.  
 2. `[<lernact-prac>]`Integrate into `screensavers.js` and tag with `v1.2`.  
 
