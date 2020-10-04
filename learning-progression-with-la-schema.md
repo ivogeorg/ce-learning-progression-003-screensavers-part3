@@ -3,7 +3,7 @@
 This is learning progression 003 for the Fall 2020 installment of the course CPE 1040: Introduction to Computer Engineering at MSU Denver.
 
 
-## Learning Progression 003: Screensavers (Part 1)
+## Learning Progression 003: Screensavers (Part 3)
 [[toc](#table-of-contents)]
 
 This progression is the culmination of the first part of the course, in which we program the bear-bones micro:bit without any extenral circuitry attached and without communication features. We pull together all the programming language features and best practices that we introduced in the previous two learning progressions, to write a significantly larger target program over 12 steps. This will present the opportunity to learn about some of the design considerations a programmer makes when approaching a larger project. The progression is also going to dig a bit deeper into the _softare stack_ of the micro:bit, and uncover the ways it affects these considerations.
@@ -192,29 +192,62 @@ simulator fidelity | yes | no
 #### 1. Study
 [[toc](#table-of-contents)]
 
-    - can use out-of-bound coordinates in `plot()` and `unplot()`  
-    - don't use `pause()`, `show*()` for smooth graphics 
-    - `clearScreen()` is often necessary but it's fast, so no problem  
-    - why do we need `pause()` after `clearScreen()`?
-      ```javascript
-      while (true) {
-          if (isHeart)                                             
-              basic.showIcon(IconNames.Heart)
-          else
-              basic.showIcon(IconNames.Butterfly)
-          basic.pause(100)
-          basic.clearScreen()
-          basic.pause(100)                             // THIS IS REQUIRED TO SEE THE ICON BLINK
+##### Out-of-bound coordinates
+
+- with `led.plot` and `led.unplot`  
+- not with `LedSprite`  
+
+##### Smooth graphics
+
+- don't use `pause()`, `show*()` for smooth graphics 
+- `clearScreen()`, if used sparingly, is okay (it's fast)  
+
+##### Speed and scheduling
+
+- why do we need `pause()` after `clearScreen()`?
+  ```javascript
+  while (true) {
+      if (isHeart) {                                             
+          basic.showIcon(IconNames.Heart)
+      } else {
+          basic.showIcon(IconNames.Butterfly)
       }
-      ```
-    - _frame_-based display for speed and smoothness  
-    - mod-based timing  
-      - simulator vs device  
-      - fine-tuning
+      basic.pause(100)
+      basic.clearScreen()
+      basic.pause(100)                             // THIS IS REQUIRED TO SEE THE ICON BLINK
+  }
+  ```
+
+##### Mod-based timing
+    
+- mod-based timing  
+
+##### Frame-based display
+    
+- _frame_-based display for speed and smoothness  
+
+##### Simulator fidelity revisited
+
+- simulator vs device  
+  - manual fine-tuning
+  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
+
+1. `[<lernact-prac>]`Snakes screensaver sub-program.  
+2. `[<lernact-prac>]`Integrate into `screensavers.js` and tag with `v1.2`.  
+
 #### 3. Present
 [[toc](#table-of-contents)]
    
+In the [programs](programs) directory:
+1. Add your program from 12.2.1 with filename `microbit-program-12-2-1.js`.  
+2. Add your program from 12.2.2 with filename `microbit-program-12-2-2.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 12.2.1.  
+2. Link to a demo video showing the execution of the program from 12.2.1.  
+3. Link to the program from 12.2.2.  
+4. Link to a demo video showing the execution of the program from 12.2.2.  
 
