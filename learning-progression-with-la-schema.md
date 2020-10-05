@@ -204,6 +204,8 @@ In the [Lab Notebook](README.md):
 - How is `pause` executed and what is affected (e.g. other repeated behavior, event handling, etc.)  
   - `pause()` should be avoided, especially with multiple `forever()` loops  
   - `pause` calls `fiber_sleep(ms);`, so depending on what that does and what a fiber is executing, and how fibers are assigned, pause may only be blocking one fiber and may or may not have implications on the global dynamics   
+    - [micro:bit runtime docs](https://lancaster-university.github.io/microbit-docs/advanced/)  
+    - [fiber-sleep package](https://github.com/jcoreio/fiber-sleep) (the `Fibre` object calls `yield`)   
 
 ##### `forever` vs `while`
 
