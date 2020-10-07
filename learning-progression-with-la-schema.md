@@ -294,7 +294,7 @@ In the [Lab Notebook](README.md):
 **TODO** This is probably the most challenging screensaver. Expand to include everything learned, systematically organized into a unified software engineering experience!  
 1. `[<lernact-prac>]`Slytherin screensaver. Three levels:
    1. [1 step point] A single snake with wrap-around and self-curl, bright head, random motion, and `turnDelay`.  
-   2. [1 + 2 extra step point] Multiple snakes, with different colors and random overlap.  
+   2. [1 + 5 extra step point] Multiple snakes, with different colors and random overlap.  
    3. [1 + 10 step points] A 15% chance for a biter, which slithers on top of others, and kills them on contact (with head). Random repopulation.
 2. `[<lernact-prac>]`Integrate into `screensavers.js` and tag with `v1.2`.  
 
