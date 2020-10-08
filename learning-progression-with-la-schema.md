@@ -134,19 +134,23 @@ In the [Lab Notebook](README.md):
 - push
 
 - creating directories  
-- mv, rm  
+- mv, rm, cp  
 
 ##### Github workflow
 
-- branches & merging  
+- branching & merging  
 - pull requests (strictly Github)  
-- Github Classroom **Feedback**)  
+- Github Classroom piggy-backing on Pull Requests with **Feedback**  
 - releases & tags  
 
 ##### Incremental development
 
-- incremental development example  
+- incremental development examples:
+  - `Complex` class live declaration and incremental development  
+  - `UnsignedBinary` class live declaration and incremental development  
 - [tag_example](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
+  - record taking the current state of the `Complex` code and tagging it  
+  - record taking the current state of the `UnsignedBinary` code and tagging it  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
@@ -176,16 +180,16 @@ In the [Lab Notebook](README.md):
 ##### Software stack
 
 - Advanced material: [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
+  - TS runtime  
+  - micro:bit runtime (aka DAL)  
+  - mbed OS  
+    - drivers  
+    - processor development kit  
 - **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
   - Issues of speed, memory, etc.  
   - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
   - (Brendan) Does a time slice have to end for event handling to proceed?  
 
-- TS runtime  
-- micro:bit runtime (aka DAL)  
-- mbed OS  
-  - drivers  
-  - processor development kit  
 
 ##### Fiber scheduling 
 
@@ -251,11 +255,12 @@ In the [Lab Notebook](README.md):
 ##### Out-of-bound coordinates
 
 - with `led.plot` and `led.unplot`  
-- not with `LedSprite`  
+- not with `LedSprite` (identify code lines in `game.ts` or elsewhere restricting coordinates)  
 
 ##### Smooth graphics
 
-- don't use `pause()`, `show*()` for smooth graphics 
+- don't use `pause()`, `show*()` for smooth graphics  
+  - fiber states and lifecycle  
 - `clearScreen()`, if used sparingly, is okay (it's fast)  
 
 ##### Speed and scheduling
@@ -277,16 +282,20 @@ In the [Lab Notebook](README.md):
 ##### Mod-based timing
     
 - mod-based timing  
+  - `rain`  
+  - `bouncing_marbles`  
 
 ##### Frame-based display
     
 - _frame_-based display for speed and smoothness  
-
+ - 3d array for `slytherin`  
+ 
 ##### Simulator fidelity revisited
 
 - simulator vs device  
-  - manual fine-tuning
-  
+  - manual fine-tuning  
+  - dependency on code complexity  
+  - efficient vs inefficient code  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
