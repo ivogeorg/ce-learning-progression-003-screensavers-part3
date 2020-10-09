@@ -126,6 +126,7 @@ In the [Lab Notebook](README.md):
 ##### Git commands
 
 - init  
+- clone  
 - status
 - add  
 - commit  
@@ -134,13 +135,16 @@ In the [Lab Notebook](README.md):
 - push
 
 - creating directories  
+  - no empty directories, so add `empty.txt` (`touch`)  
+  - adding images  
 - mv, rm, cp  
 
 ##### Github workflow
 
+- markdown (README.md)    
 - branching & merging  
-- pull requests (strictly Github)  
-- Github Classroom piggy-backing on Pull Requests with **Feedback**  
+- pull requests (strictly Github, not Git)  
+- Github Classroom piggy-backing on Pull Requests for **Feedback**  
 - releases & tags  
 
 ##### Incremental development
