@@ -150,11 +150,9 @@ In the [Lab Notebook](README.md):
 ##### Incremental development
 
 - incremental development examples:
-  - `Complex` class live declaration and incremental development  
-  - `UnsignedBinary` class live declaration and incremental development  
-- [tag_example](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
-  - record taking the current state of the `Complex` code and tagging it  
-  - record taking the current state of the `UnsignedBinary` code and tagging it  
+  - `class Complex` [video](https://msudenver.yuja.com/V/Video?v=1978529&node=7604592&a=1823805177&autoplay=1) and [code](https://gist.github.com/ivogeorg/842c36004e50143b43c6affd0dfa7984)    
+  - `class UnsignedBinary` [video](https://msudenver.yuja.com/V/Video?v=1978655&node=7604844&a=1873218802&autoplay=1) and [code](https://gist.github.com/ivogeorg/ef5f46b8ca67cfa5cdf9c8cbd217c9ef)   
+- [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
