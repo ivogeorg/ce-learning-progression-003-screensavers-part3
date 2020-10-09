@@ -84,7 +84,7 @@ This progression is the culmination of the first part of the course, in which we
 ##### Class `LedSprite`
 
 [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts)  
-   - export  
+   - `export`  
    - functions (`createSprite`)  
    - classes (`LedSprite`)  
    - namespaces (`game`)  
@@ -96,7 +96,8 @@ This progression is the culmination of the first part of the course, in which we
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Organize your screensavers program like the [`game.ts` library](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) and write the main program at the very bottom. 
+1. `[<lernact-prac>]`Organize your screensavers program like the [`game.ts` library](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) and write the main program at the very bottom.  
+   - `enum` types  
 2. `[<lernact-prac>]`For each global variable, function, and class method, write a descriptive comment, on the side of the variables and on top for the functions/methods. Remember the _last repository commit_ of this process.    
 
 #### 3. Present
