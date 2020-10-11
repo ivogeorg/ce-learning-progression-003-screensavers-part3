@@ -176,7 +176,18 @@ In the [Lab Notebook](README.md):
 
 ##### Git command line
 
+`[<lernact-rd>]`  
+
+[Git](https://git-scm.com/)  
+
+Linux kernel  
+
+`git-repos`
+
 ##### Git remote and local
+
+commits  
+scenarios  
 
 ##### Git commands
 
@@ -196,7 +207,8 @@ In the [Lab Notebook](README.md):
 
 ##### Github workflow
 
-- markdown (README.md)    
+- markdown (README.md)   
+- comments  
 - branching & merging  
 - pull requests (strictly Github, not Git)  
 - Github Classroom piggy-backing on Pull Requests for **Feedback**  
@@ -212,6 +224,7 @@ In the [Lab Notebook](README.md):
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+**TODO: Extra exercises**  
 1. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your entries in the Lab Notebook._   
 2. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your entries in the Lab Notebook._  
 3. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
