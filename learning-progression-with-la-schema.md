@@ -63,7 +63,7 @@ Having the micro:bit as our model computer and MakeCode as our programming envir
 
 A library is a self-contained collection of programming artifacts, in particular `[<cept>]`_type definitions_, `[<cept>]`_functions_, and `[<cept>]`_classes_, generally of a common theme. A library has no `[<cept>]`_main program_, but instead is used as an already prepared resource in writing a main program. A libary exports (some of) its programming artifacts to be used in writing other libraries or standalone programs.
 
-The way MakeCode exposes libraries like [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) is by compiling all of them together in the TypeScript `[<cept>]`_runtime_. The TS runtime is a top layer of the micro:bit `[<cept>]`_software stack_. (If we instead wrote our programs in MicroPython, its runtime would be the top layer of the stack.) A runtime is a set of programs which translates human-readable programs in a particular programming language into a lower layer of software stack, which is usually much closer to the particular physical device that will run the programs. For example, in the case of the micro:bit, the layer below the TS runtime is the micro:bit runtime, which abstracts the low-level functionality of the physical device into generic-device programming artifacts. For this reason, it is also called a `[<cept>]`_device abstraction layer_ (DAL). See the diagram showing the software stack of the micro:bit when we use TS to program it: 
+The way MakeCode exposes libraries like [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) is by compiling all of them together in the TypeScript `[<cept>]`_runtime_. The TS runtime is a top layer of the micro:bit `[<cept>]`_software stack_. (If we instead wrote our programs in MicroPython, its runtime would be the top layer of the stack.) A runtime is a set of programs which translates human-readable programs in a particular programming language into a lower layer of software stack, which is usually much closer to the particular physical device that will run the programs. For example, in the case of the micro:bit, the layer below the TS runtime is the [micro:bit runtime](https://tech.microbit.org/software/runtime-mbed/), which abstracts the low-level functionality of the physical device into generic-device programming artifacts. For this reason, it is also called a `[<cept>]`_device abstraction layer_ (DAL). See the diagram showing the software stack of the micro:bit when we use TS to program it: 
 
 <img src="images/microbit-software-stack-01.png" alt="micro:bit software stack sketch" width="600" />
 
@@ -193,12 +193,13 @@ scenarios
 
 - init  
 - clone  
-- status
+- remote  
+- status  
 - add  
 - commit  
-  - informative messages  
+  - informative commit messages  
 - pull  
-- push
+- push  
 
 - creating directories  
   - no empty directories, so add `empty.txt` (`touch`)  
@@ -225,6 +226,7 @@ scenarios
 [[toc](#table-of-contents)]
 
 **TODO: Extra exercises**  
+[Github Guides](https://guides.github.com/)  
 1. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your entries in the Lab Notebook._   
 2. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your entries in the Lab Notebook._  
 3. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
@@ -249,7 +251,8 @@ In the [Lab Notebook](README.md):
 
 ##### Software stack
 
-- Advanced material: [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
+- [micro:bit software](https://tech.microbit.org/software/)  
+- [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
   - TS runtime  
   - micro:bit runtime (aka DAL)  
   - mbed OS  
@@ -264,6 +267,9 @@ In the [Lab Notebook](README.md):
 ##### Fiber scheduling 
 
 - [reactive system](https://makecode.microbit.org/device/reactive)  
+- part of the micro:bit runtime (DAL)  
+  - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
+  - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
 - threads  
 - fibers  
 - scheduling  
