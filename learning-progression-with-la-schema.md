@@ -180,17 +180,23 @@ In the [Lab Notebook](README.md):
 
 One of the first large `[<cept>]`_open-source_ projects, and still one of the most popular, is the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel), which is the basis for all Linux-based `[<cept>]`_operating systems_. Git was developed to coordinate its highly-distributed multi-person development. Just take a look at the number of commits to Linus Torvalds' [Linux kernel repository on Github](https://github.com/torvalds/linux) to get an idea of the scope of the project and the complexity of its maintenance.
 
-This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with remote servers where Git repositories are maintained. Github is the largest such server. 
+We are already working with Git. You are reading a Markdown file in a _private_ Github repostory which is owned by the course staff and was created specifically for you. You have been added as an `[<cept>]`_outside collaborator_ and given full member access to the repository. You and the course staff can create files, modify files, and make comments.
 
 ##### Git remote and local
 
-We are already working with Git. You are reading a Markdown file in a private repostory which is owned the course staff and was created specifically for you. You have been added as an `[<cept>]`_outside collaborator_ and given full member access to the repository. You can create files, modify files, and make comments.
+Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github and look at the underlying Git operations performed on it on a _local_ `[<cept>]`_clone_ of the repository.
 
-Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github for a bit, and look at the underlying Git operations performed on it.
+This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with _remote_ servers where Git repositories are maintained. Github is the largest such server. 
+
+Each save is a commit...  
+
+Distributed => Remote (main), local (individual)
 
 scenarios  
-
-`git-repos`
+1. Github only  
+2. Github and local  
+   - `git-repos`  
+3. Local to Github  
 
 commits  
 
@@ -212,6 +218,9 @@ commits
 - mv, rm, cp  
 
 What Git commands each action we do on Github translates to.  
+
+##### Branches
+
 
 ##### Github workflow
 
