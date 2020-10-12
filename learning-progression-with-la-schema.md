@@ -90,7 +90,7 @@ An enumerated type is a programming artifact which has attributed of arrays and 
 ```javascript
 // Example 9.1.2
 
-enum Value { Steel = 100, Silver = 250, Gold = 350 }
+enum CommodityValue { Iron = 100, Silver = 250, Gold = 350 }
 enum Bird { Sparrow = 0, Hawk, Eagle, Finch, Osprey, Canary }  // e.g. Bird.Finch equals 3
 ```
 
@@ -197,6 +197,7 @@ scenarios
 2. Github and local [demo video](https://msudenver.yuja.com/V/Video?v=1991697&node=7636328&a=1013082438&autoplay=1)    
 
 <img src="images/git-add-commit-push-pull-checkout.jpeg" alt="Git basic commands" width="600" />  
+
 [[Image credit](https://dev.to/mollynem/git-github--workflow-fundamentals-5496)]
 
 3. Local to Github  
