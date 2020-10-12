@@ -63,7 +63,7 @@ Having the micro:bit as our model computer and MakeCode as our programming envir
 
 A library is a self-contained collection of programming artifacts, in particular `[<cept>]`_type definitions_, `[<cept>]`_functions_, and `[<cept>]`_classes_, generally of a common theme. A library has no `[<cept>]`_main program_, but instead is used as an already prepared resource in writing a main program. A libary exports (some of) its programming artifacts to be used in writing other libraries or standalone programs.
 
-The way MakeCode exposes libraries like [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) is by compiling all of them together in the TypeScript `[<cept>]`_runtime_. The TS runtime is a top layer of the micro:bit `[<cept>]`_software stack_. (If we instead wrote our programs in MicroPython, its runtime would be the top layer of the stack.) A runtime is a set of programs which translates human-readable programs in a particular programming language into a lower layer of software stack, which is usually much closer to the particular physical device that will run the programs. For example, in the case of the micro:bit, the layer below the TS runtime is the micro:bit runtime, which abstracts the low-level functionality of the physical device into generic-device programming artifacts. For this reason, it is also called a `[<cept>]`_device abstraction layer_ (DAL). See the diagram showing the software stack of the micro:bit when we use TS to program it: 
+The way MakeCode exposes libraries like [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) is by compiling all of them together in the TypeScript `[<cept>]`_runtime_. The TS runtime is a top layer of the micro:bit `[<cept>]`_software stack_. (If we instead wrote our programs in MicroPython, its runtime would be the top layer of the stack.) A runtime is a set of programs which translates human-readable programs in a particular programming language into a lower layer of software stack, which is usually much closer to the particular physical device that will run the programs. For example, in the case of the micro:bit, the layer below the TS runtime is the [micro:bit runtime](https://tech.microbit.org/software/runtime-mbed/), which abstracts the low-level functionality of the physical device into generic-device programming artifacts. For this reason, it is also called a `[<cept>]`_device abstraction layer_ (DAL). See the diagram showing the software stack of the micro:bit when we use TS to program it: 
 
 <img src="images/microbit-software-stack-01.png" alt="micro:bit software stack sketch" width="600" />
 
@@ -163,9 +163,9 @@ In the [programs](programs) directory:
 In the [Lab Notebook](README.md):
 1. Answer the questions in 9.2.1.  
 2. Link to the program from 9.2.1.  
-3. Link to a demo video showing the execution of the program from 9.2.1.  
+3. Link to a demo video showing the execution of the program from 9.2.1. This is needed as a verification that you haven't broken your code.  
 4. Link to the program from 9.2.2.  
-5. Link to a demo video showing the execution of the program from 9.2.2.  
+5. Link to a demo video showing the execution of the program from 9.2.2. This is needed as a verification that you haven't broken your code.  
 
    
 ### 10. Iterative development with Github  
@@ -176,56 +176,99 @@ In the [Lab Notebook](README.md):
 
 ##### Git command line
 
+`[<lernact-rd>]`Github is built around the `[<cept>]`_version-control system_ [Git](https://git-scm.com/) (aka `[<cept>]`_source-control management_ system). The term "source" is used for the raw human-readable form of a program, to be contrasted against the machine-executable form of the program. Nowadays, no programming or engineering project is undertaken without keeping a dynamic record of all the changes made. As a large project does not happen overnight, this record is indispensable. It is the central component of modern engineering workflows, supporting a large range of team organizations, company policies, development use cases, and release schedules.  
+
+One of the first large `[<cept>]`_open-source_ projects, and still one of the most popular, is the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel), which is the basis for all Linux-based `[<cept>]`_operating systems_. Git was [developed](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git) to coordinate its highly-distributed multi-person development. Just take a look at the number of commits to Linus Torvalds' [Linux kernel repository on Github](https://github.com/torvalds/linux) to get an idea of the scope of the project and the complexity of its maintenance.
+
+We are already working with Git. You are reading a Markdown file in a _private_ Github repostory which is owned by the course staff and was created specifically for you. You have been added as an `[<cept>]`_outside collaborator_ and given full member access to the repository. You and the course staff can create files, modify files, and make comments.
+
 ##### Git remote and local
+
+Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github and look at the underlying Git operations performed on it on a _local_ `[<cept>]`_clone_ of the repository.
+
+This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with _remote_ servers where Git repositories are maintained. Github is the largest such server. 
+
+Each save is a commit...  
+
+Distributed => Remote (main), local (individual)
+
+scenarios  
+1. Github only [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1)   
+2. Github and local  
+   - `git-repos`  
+3. Local to Github  
+
+commits  
 
 ##### Git commands
 
 - init  
 - clone  
-- status
+- remote  
+- status  
 - add  
 - commit  
-  - informative messages  
+  - informative commit messages  
 - pull  
-- push
+- push  
 
 - creating directories  
   - no empty directories, so add `empty.txt` (`touch`)  
   - adding images  
 - mv, rm, cp  
 
+What Git commands each action we do on Github translates to.  
+
+##### Git branch and merge
+
+- branch  
+- checkout  
+- switch  
+- merge  
+- tag  
+  - [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
+- log  
+
 ##### Github workflow
 
-- markdown (README.md)    
-- branching & merging  
+- markdown (README.md)   
+- comments  
 - pull requests (strictly Github, not Git)  
 - Github Classroom piggy-backing on Pull Requests for **Feedback**  
-- releases & tags  
+- releases  
 
 ##### Incremental development
 
-- incremental development examples:
-  - `class Complex` [video](https://msudenver.yuja.com/V/Video?v=1978529&node=7604592&a=1823805177&autoplay=1) and [code](https://gist.github.com/ivogeorg/842c36004e50143b43c6affd0dfa7984)    
-  - `class UnsignedBinary` [video](https://msudenver.yuja.com/V/Video?v=1978655&node=7604844&a=1873218802&autoplay=1) and [code](https://gist.github.com/ivogeorg/ef5f46b8ca67cfa5cdf9c8cbd217c9ef)   
-- [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
+`[<lernact-rd>]``[<cept>]`_Incremental development_ means a sequence of programming iterations which:
+1. Make a small but sufficient (that is, incremental) addition to the current program, be it a new feature, a modification of its functionality or user interface, a bug fix, etc.  
+2. Runs, tests, and `[<cept>]`_debugs_ the additions, until no more bugs can be identified. This should include testing older code, to ensure that the new additions have not introduced bugs into the old code. This is called `[<cept>]`_regression testing_.      
+3. Commits the changes. If a significant new functionality has been accumulated, all the outstanding local commits are pushed to the remote repository.    
+
+`[<lernact-see>]`Watch the following recordings of two live coding sessions where incremental development was shown in the context of creating two new classes in JavaScript:
+1. `class Complex` [video](https://msudenver.yuja.com/V/Video?v=1978529&node=7604592&a=1823805177&autoplay=1) and [source code](https://gist.github.com/ivogeorg/842c36004e50143b43c6affd0dfa7984).    
+2. `class UnsignedBinary` [video](https://msudenver.yuja.com/V/Video?v=1978655&node=7604844&a=1873218802&autoplay=1) and [source code](https://gist.github.com/ivogeorg/ef5f46b8ca67cfa5cdf9c8cbd217c9ef).   
 
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your entries in the Lab Notebook._   
-2. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your entries in the Lab Notebook._  
-3. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
+1. `[<lernact-prac>]`Clone your remote assignment repository to your local environment. In the local directory, create an initally empty documentation directory called `docs`, commit, and push to remote.  
+2. `[<lernact-prac>]`Start a new local repository. Create a `.txt` and `.js` file in it. Add and commit. On github create a new empty repository called `remote-home-for-local`. Link the local with the remote and push the contents.    
+3. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your latest commits of the Lab Notebook._   
+4. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your latest commits of the Lab Notebook._   
+5. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
 
 #### 3. Present
 [[toc](#table-of-contents)]
    
 In the [programs](programs) directory:
-1. Add your program from 10.2.3 with filename `screensavers.js`.  
+1. Add your program from 10.2.5 with filename `screensavers.js`.  
 
 In the [Lab Notebook](README.md):
-1. Link to the `v0.8` tag.  
-2. Link to the `v0.9` tag.  
-3. Link to the `v1.0` tag.  
+1. Link to the `docs` directory created in 10.2.1.  
+2. Link to the repository created in 10.2.2.  
+3. Link to the `v0.8` tag.  
+4. Link to the `v0.9` tag.  
+5. Link to the `v1.0` tag.  
 
 
 ### 11. Reactive system  
@@ -236,7 +279,8 @@ In the [Lab Notebook](README.md):
 
 ##### Software stack
 
-- Advanced material: [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
+- [micro:bit software](https://tech.microbit.org/software/)  
+- [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
   - TS runtime  
   - micro:bit runtime (aka DAL)  
   - mbed OS  
@@ -251,6 +295,10 @@ In the [Lab Notebook](README.md):
 ##### Fiber scheduling 
 
 - [reactive system](https://makecode.microbit.org/device/reactive)  
+- part of the micro:bit runtime (DAL)  
+  - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
+  - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
+  - **TODO: find the fiber calls in pxt**  
 - threads  
 - fibers  
 - scheduling  
