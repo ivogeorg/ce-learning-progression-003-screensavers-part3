@@ -178,7 +178,7 @@ In the [Lab Notebook](README.md):
 
 `[<lernact-rd>]`Github is built around the `[<cept>]`_version-control system_ [Git](https://git-scm.com/) (aka `[<cept>]`_source-control management_ system). The term "source" is used for the raw human-readable form of a program, to be contrasted against the machine-executable form of the program. Nowadays, no programming or engineering project is undertaken without keeping a dynamic record of all the changes made. As a large project does not happen overnight, this record is indispensable. It is the central component of modern engineering workflows, supporting a large range of team organizations, company policies, development use cases, and release schedules.  
 
-One of the first large `[<cept>]`_open-source_ projects, and still one of the most popular, is the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel), which is the basis for all Linux-based `[<cept>]`_operating systems_. Git was developed to coordinate its highly-distributed multi-person development. Just take a look at the number of commits to Linus Torvalds' [Linux kernel repository on Github](https://github.com/torvalds/linux) to get an idea of the scope of the project and the complexity of its maintenance.
+One of the first large `[<cept>]`_open-source_ projects, and still one of the most popular, is the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel), which is the basis for all Linux-based `[<cept>]`_operating systems_. Git was [developed](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git) to coordinate its highly-distributed multi-person development. Just take a look at the number of commits to Linus Torvalds' [Linux kernel repository on Github](https://github.com/torvalds/linux) to get an idea of the scope of the project and the complexity of its maintenance.
 
 We are already working with Git. You are reading a Markdown file in a _private_ Github repostory which is owned by the course staff and was created specifically for you. You have been added as an `[<cept>]`_outside collaborator_ and given full member access to the repository. You and the course staff can create files, modify files, and make comments.
 
@@ -193,7 +193,7 @@ Each save is a commit...
 Distributed => Remote (main), local (individual)
 
 scenarios  
-1. Github only  
+1. Github only [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1)   
 2. Github and local  
    - `git-repos`  
 3. Local to Github  
@@ -219,44 +219,56 @@ commits
 
 What Git commands each action we do on Github translates to.  
 
-##### Branches
+##### Git branch and merge
 
+- branch  
+- checkout  
+- switch  
+- merge  
+- tag  
+  - [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
+- log  
 
 ##### Github workflow
 
 - markdown (README.md)   
 - comments  
-- branching & merging  
 - pull requests (strictly Github, not Git)  
 - Github Classroom piggy-backing on Pull Requests for **Feedback**  
-- releases & tags  
+- releases  
 
 ##### Incremental development
 
-- incremental development examples:
-  - `class Complex` [video](https://msudenver.yuja.com/V/Video?v=1978529&node=7604592&a=1823805177&autoplay=1) and [code](https://gist.github.com/ivogeorg/842c36004e50143b43c6affd0dfa7984)    
-  - `class UnsignedBinary` [video](https://msudenver.yuja.com/V/Video?v=1978655&node=7604844&a=1873218802&autoplay=1) and [code](https://gist.github.com/ivogeorg/ef5f46b8ca67cfa5cdf9c8cbd217c9ef)   
-- [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
+`[<lernact-rd>]``[<cept>]`_Incremental development_ means a sequence of programming iterations which:
+1. Make a small but sufficient (that is, incremental) addition to the current program, be it a new feature, a modification of its functionality or user interface, a bug fix, etc.  
+2. Runs, tests, and `[<cept>]`_debugs_ the additions, until no more bugs can be identified. This should include testing older code, to ensure that the new additions have not introduced bugs into the old code. This is called `[<cept>]`_regression testing_.      
+3. Commits the changes. If a significant new functionality has been accumulated, all the outstanding local commits are pushed to the remote repository.    
+
+`[<lernact-see>]`Watch the following recordings of two live coding sessions where incremental development was shown in the context of creating two new classes in JavaScript:
+1. `class Complex` [video](https://msudenver.yuja.com/V/Video?v=1978529&node=7604592&a=1823805177&autoplay=1) and [source code](https://gist.github.com/ivogeorg/842c36004e50143b43c6affd0dfa7984).    
+2. `class UnsignedBinary` [video](https://msudenver.yuja.com/V/Video?v=1978655&node=7604844&a=1873218802&autoplay=1) and [source code](https://gist.github.com/ivogeorg/ef5f46b8ca67cfa5cdf9c8cbd217c9ef).   
 
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-**TODO: Extra exercises**  
-[Github Guides](https://guides.github.com/)  
-1. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your entries in the Lab Notebook._   
-2. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your entries in the Lab Notebook._  
-3. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
+1. `[<lernact-prac>]`Clone your remote assignment repository to your local environment. In the local directory, create an initally empty documentation directory called `docs`, commit, and push to remote.  
+2. `[<lernact-prac>]`Start a new local repository. Create a `.txt` and `.js` file in it. Add and commit. On github create a new empty repository called `remote-home-for-local`. Link the local with the remote and push the contents.    
+3. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.8`. _Note: It should include your latest commits of the Lab Notebook._   
+4. `[<lernact-prac>]`Tag the last commit from 9.3.1 as `v0.9`. _Note: It should include your latest commits of the Lab Notebook._   
+5. `[<lernact-prac>]`Create a file `screensavers.js` from the `v0.9` program. Tag as `v1.0`.  
 
 #### 3. Present
 [[toc](#table-of-contents)]
    
 In the [programs](programs) directory:
-1. Add your program from 10.2.3 with filename `screensavers.js`.  
+1. Add your program from 10.2.5 with filename `screensavers.js`.  
 
 In the [Lab Notebook](README.md):
-1. Link to the `v0.8` tag.  
-2. Link to the `v0.9` tag.  
-3. Link to the `v1.0` tag.  
+1. Link to the `docs` directory created in 10.2.1.  
+2. Link to the repository created in 10.2.2.  
+3. Link to the `v0.8` tag.  
+4. Link to the `v0.9` tag.  
+5. Link to the `v1.0` tag.  
 
 
 ### 11. Reactive system  
