@@ -200,13 +200,11 @@ scenarios
 
 [[Image credit](https://dev.to/mollynem/git-github--workflow-fundamentals-5496)]
 
-3. Local to Github  
-
-commits  
+3. Local to Github [demo video](https://msudenver.yuja.com/V/Video?v=1992746&node=7638785&a=1457131414&autoplay=1)   
 
 ##### Git commands
 
-Follow a quick review of the most important Git commans, with links to the documentation:
+Follow a quick review of the most fundamental Git commans, with links to the documentation:
 1. [`git init`](https://git-scm.com/docs/git-init): Creates an empty local Git repsitory. Usually the first command when starting from local.    
 2. [`git clone`](https://git-scm.com/docs/git-clone): Clones a repository into a new directory. This is what we use to make a local copy of a repository already existing on Github.     
 3. [`git remote`](https://git-scm.com/docs/git-remote): Manage a set of tracked repositories. In particular, can point a local reposotory to its remote. It has many options.    
@@ -220,13 +218,23 @@ Follow a quick review of the most important Git commans, with links to the docum
 
 ##### Git branch and merge
 
-- branch  
-- checkout  
-- switch  
-- merge  
-- tag  
-  - [tag_example](https://github.com/ivogeorg/e-learning-progression-002-bouncing-sprites/releases/tag/v1.0)  
-- log  
+In the image in [Git remote and local](#git-remote-and-local) section image, we saw the command `checkout` but we didn't explain it. One of the most important features of Git is that it allows a team to isolate the development of new features from the main project until they are sufficiently mature. This is achieved by `[<cept>]`_branching_ off the main project (aka master), which can be throught as the `[<cept>]`_trunk_. Branching (aka **Fork** in Github), is essentially a copy of the repository under a new name, which however is still tracked in parallel with the trunk. At some point in the future, the branch developers may request that their code is `[<cept>]`_merged_ into the trunk. Merge is done when the branch code is sufficiently mature and may require several iterations to be brought into consistence with the trunk, which may also have changed and/or been merged with other branches. This is illustrated in the following simple diagram:
+
+<img src="images/git-branch-merge.png" alt="Simple branch and merge diagram" width="600" />
+
+[[Image credit](https://www.nobledesktop.com/learn/git/git-branches)]
+
+The most relevant Git commands which support branching and merging are:
+1. [`git branch`](https://git-scm.com/docs/git-branch): Manipulate branches.    
+2. [`git checkout`](https://git-scm.com/docs/git-checkout): Switch branches. Updates the working tree.    
+3. [`git switch`](https://git-scm.com/docs/git-switch): Switch branches.    
+4. [`git merge`](https://git-scm.com/docs/git-merge): Join two or more development histories together.    
+5. [`git tag`](https://git-scm.com/docs/git-tag): Manipulate tags. Tags are names for particular points in the development history of a project branch. They are used to indicate a major feature is completed, a significant rework has been completed, an early release is ready for testing, etc. See an example of a [Git tag](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0) on a Github repository.  
+6. [`git log`](https://git-scm.com/docs/git-log): Shows commit logs. On Github, this is done by clicking on **Commits**.    
+
+<img src="images/git-tag.png" alt="Master marked with version tags" width="600" />
+
+[[Image credit](https://leanpub.com/git-flow/read)]
 
 ##### Github workflow
 
