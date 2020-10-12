@@ -188,19 +188,15 @@ Working directly with the Github website, we are using Git only _indirectly_, be
 
 This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with _remote_ servers where Git repositories are maintained. Github is the largest such server. 
 
-Each save is a commit...  
-
-Distributed => Remote (main), local (individual)
-
-scenarios  
-1. Github only [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1)   
-2. Github and local [demo video](https://msudenver.yuja.com/V/Video?v=1991697&node=7636328&a=1013082438&autoplay=1)    
+`[<lernact-see>]`Git was meant to be a distributed source control system so it was designed with the notion of `[<cept>]`_remote_ and `[<cept>]`_local_ repositories. In our case, the remote repositories are on Github, and the local are copies of the remote ones on our oun computers. There are three scenarios of remote-local work we will cover:
+1. **Scenario 1: Github only**. It is explained and shown in this [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1).   
+2. **Scenario 2: Github and local**. It is explained and shown in this [demo video](https://msudenver.yuja.com/V/Video?v=1991697&node=7636328&a=1013082438&autoplay=1).    
 
 <img src="images/git-add-commit-push-pull-checkout.jpeg" alt="Git basic commands" width="600" />  
 
 [[Image credit](https://dev.to/mollynem/git-github--workflow-fundamentals-5496)]
 
-3. Local to Github [demo video](https://msudenver.yuja.com/V/Video?v=1992746&node=7638785&a=1457131414&autoplay=1)   
+3. **Scenario 3: Local to Github**. It is explained and shown in this [demo video](https://msudenver.yuja.com/V/Video?v=1992746&node=7638785&a=1457131414&autoplay=1).   
 
 ##### Git commands
 
@@ -229,7 +225,7 @@ The most relevant Git commands which support branching and merging are:
 2. [`git checkout`](https://git-scm.com/docs/git-checkout): Switch branches. Updates the working tree.    
 3. [`git switch`](https://git-scm.com/docs/git-switch): Switch branches.    
 4. [`git merge`](https://git-scm.com/docs/git-merge): Join two or more development histories together.    
-5. [`git tag`](https://git-scm.com/docs/git-tag): Manipulate tags. Tags are names for particular points in the development history of a project branch. They are used to indicate a major feature is completed, a significant rework has been completed, an early release is ready for testing, etc. See an example of a [Git tag](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0) on a Github repository.  
+5. [`git tag`](https://git-scm.com/docs/git-tag): Manipulate tags. Tags are names for particular points in the development history of a project branch. They are used to indicate a major feature is completed, a significant rework has been completed, an early release is ready for testing, etc. See an example of a [Git tag](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0) on a Github repository. Github creates code packages and some additional features around tags and calls this extended feature `[<cept>]`_Releases_. This is a common term in software development, and you have experienced it at least once when, for example, your computer or phone operating system updated to a new version.    
 6. [`git log`](https://git-scm.com/docs/git-log): Shows commit logs. On Github, this is done by clicking on **Commits**.    
 
 <img src="images/git-tag.png" alt="Master marked with version tags" width="600" />
@@ -238,11 +234,14 @@ The most relevant Git commands which support branching and merging are:
 
 ##### Github workflow
 
-- markdown (README.md)   
-- comments  
-- pull requests (strictly Github, not Git)  
-- Github Classroom piggy-backing on Pull Requests for **Feedback**  
-- releases  
+Github follows the main contours of the Git workflow, but adds various features on top, among them:
+1. Defines organizations, teams, and projects, with all the necessary management and logistics around them.  
+2. It adds various collaboration tools and workflow details that don't exist in raw Git.  
+3. It adds `[<cept>]`_pull requests_, which is a feature related to team organization, in which only some team members (called `[<cept>]`_committers_) are allowed to commit to the trunk, while others can only request that their changes are pulled in by the committers.  
+   - [Github Classroom](https://classroom.github.com/classrooms) currently piggy-backs on top of pull requests for the **Feedback** feature.  
+4. It adds comments at many places in the workflow.  
+5. It maintains the `README.md` convention.  
+6. Defines releases.  
 
 ##### Incremental development
 
