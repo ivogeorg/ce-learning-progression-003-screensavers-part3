@@ -163,9 +163,9 @@ In the [programs](programs) directory:
 In the [Lab Notebook](README.md):
 1. Answer the questions in 9.2.1.  
 2. Link to the program from 9.2.1.  
-3. Link to a demo video showing the execution of the program from 9.2.1.  
+3. Link to a demo video showing the execution of the program from 9.2.1. This is needed as a verification that you haven't broken your code.  
 4. Link to the program from 9.2.2.  
-5. Link to a demo video showing the execution of the program from 9.2.2.  
+5. Link to a demo video showing the execution of the program from 9.2.2. This is needed as a verification that you haven't broken your code.  
 
    
 ### 10. Iterative development with Github  
@@ -176,18 +176,23 @@ In the [Lab Notebook](README.md):
 
 ##### Git command line
 
-`[<lernact-rd>]`  
+`[<lernact-rd>]`Github is built around the `[<cept>]`_version-control system_ [Git](https://git-scm.com/) (aka `[<cept>]`_source-control management_ system). The term "source" is used for the raw human-readable form of a program, to be contrasted against the machine-executable form of the program. Nowadays, no programming or engineering project is undertaken without keeping a dynamic record of all the changes made. As a large project does not happen overnight, this record is indispensable. It is the central component of modern engineering workflows, supporting a large range of team organizations, company policies, development use cases, and release schedules.  
 
-[Git](https://git-scm.com/)  
+One of the first large `[<cept>]`_open-source_ projects, and still one of the most popular, is the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel), which is the basis for all Linux-based `[<cept>]`_operating systems_. Git was developed to coordinate its highly-distributed multi-person development. Just take a look at the number of commits to Linus Torvalds' [Linux kernel repository on Github](https://github.com/torvalds/linux) to get an idea of the scope of the project and the complexity of its maintenance.
 
-Linux kernel  
-
-`git-repos`
+This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with remote servers where Git repositories are maintained. Github is the largest such server. 
 
 ##### Git remote and local
 
-commits  
+We are already working with Git. You are reading a Markdown file in a private repostory which is owned the course staff and was created specifically for you. You have been added as an `[<cept>]`_outside collaborator_ and given full member access to the repository. You can create files, modify files, and make comments.
+
+Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github for a bit, and look at the underlying Git operations performed on it.
+
 scenarios  
+
+`git-repos`
+
+commits  
 
 ##### Git commands
 
@@ -205,6 +210,8 @@ scenarios
   - no empty directories, so add `empty.txt` (`touch`)  
   - adding images  
 - mv, rm, cp  
+
+What Git commands each action we do on Github translates to.  
 
 ##### Github workflow
 
@@ -270,6 +277,7 @@ In the [Lab Notebook](README.md):
 - part of the micro:bit runtime (DAL)  
   - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
   - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
+  - **TODO: find the fiber calls in pxt**  
 - threads  
 - fibers  
 - scheduling  
