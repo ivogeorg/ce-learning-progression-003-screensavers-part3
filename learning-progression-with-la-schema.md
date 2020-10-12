@@ -194,30 +194,28 @@ Distributed => Remote (main), local (individual)
 
 scenarios  
 1. Github only [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1)   
-2. Github and local  
-   - `git-repos`  
+2. Github and local [demo video](https://msudenver.yuja.com/V/Video?v=1991697&node=7636328&a=1013082438&autoplay=1)    
+
+<img src="images/git-add-commit-push-pull-checkout.jpeg" alt="Git basic commands" width="600" />  
+[[Image credit](https://dev.to/mollynem/git-github--workflow-fundamentals-5496)]
+
 3. Local to Github  
 
 commits  
 
 ##### Git commands
 
-- init  
-- clone  
-- remote  
-- status  
-- add  
-- commit  
-  - informative commit messages  
-- pull  
-- push  
-
-- creating directories  
-  - no empty directories, so add `empty.txt` (`touch`)  
-  - adding images  
-- mv, rm, cp  
-
-What Git commands each action we do on Github translates to.  
+Follow a quick review of the most important Git commans, with links to the documentation:
+1. [`git init`](https://git-scm.com/docs/git-init): Creates an empty local Git repsitory. Usually the first command when starting from local.    
+2. [`git clone`](https://git-scm.com/docs/git-clone): Clones a repository into a new directory. This is what we use to make a local copy of a repository already existing on Github.     
+3. [`git remote`](https://git-scm.com/docs/git-remote): Manage a set of tracked repositories. In particular, can point a local reposotory to its remote. It has many options.    
+4. [`git status`](https://git-scm.com/docs/git-status): Reports the status of the working tree. In particular, reports modifications of tracked files and newly created untracked files.  
+5. [`git add`](https://git-scm.com/docs/git-add): Add file(s) to tracking `[<cept>]`_index_. In other words, this includes a file(s) to version control.     
+6. [`git commit`](https://git-scm.com/docs/git-commit): Record changes to a repository. It requires a commit message (with option `-m`), which should be a short informative summary of what changed since last commit.     
+7. [`git pull`](https://git-scm.com/docs/git-pull): Fetch and sync with another repository, usually a remote. Used to sync a local repository with its Github remote if the latter changed.    
+8. [`git push`](https://git-scm.com/docs/git-push): Update remote repository. Local commits need to be pushed to be refleced in the remote repository (e.g. on Github).    
+9. [`git mv`](https://git-scm.com/docs/git-mv): Move or rename a file/directory. Updates the index!  
+10. [`git rm`](https://git-scm.com/docs/git-mv): Remove a file/directory. Updates the index!  
 
 ##### Git branch and merge
 
