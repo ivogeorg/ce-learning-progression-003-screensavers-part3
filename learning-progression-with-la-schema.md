@@ -306,7 +306,7 @@ In the [Lab Notebook](README.md):
 - part of the micro:bit runtime (DAL)  
   - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
   - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
-  - **TODO: find the fiber calls in pxt**  
+  - fiber calls in [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext), [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext)    
 - threads  
 - fibers  
 - scheduling  
