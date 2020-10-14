@@ -594,7 +594,7 @@ These are all considerations that a programmer grows to consistently make from o
 [[toc](#table-of-contents)]
 
 **TODO** This is probably the most challenging screensaver. Expand to include everything learned, systematically organized into a unified software engineering experience!  
-1. `[<lernact-prac>]`Implement the Slytherin screensaver into a function called `slytherin`. Three are three tiers of implementation, where the **first tier is siffucient for full credit for this step**, and the others are **optional challenges**:
+1. `[<lernact-prac>]`Implement the Slytherin screensaver into a function called `slytherin`. Three are three tiers of implementation, where the **first tier is sufficient for full credit for this step**, and the others are **optional challenges**:
    1. **Tier 1** A single snake moves randomly around the screen, without stepping off the screen, without wrapping around at edges, and without stepping on itself. The head of the snake should be brighter than its body. The snake's starting length (including head) should be random in the range [3, 5].  
    2. **Tier 2** [max 5 extra step points] Multiple snakes, with different colors and random overlap.  
    3. **Tier 3** [max 10 extra step points] Add the functionality of a _biter snake_, which bites and kills other snakes on contact (meaning its head is in a position where there are other snakes). There should be a 15% chance for a snake to be a biter. Upon being bitten, a snake disappears. A biter does not bite itself. For each snake bitten, the biter grows its tail by 1. The snakes are randomly repopulated so that a biter does not remain by itself.
