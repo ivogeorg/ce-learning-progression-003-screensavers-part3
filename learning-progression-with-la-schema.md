@@ -351,7 +351,7 @@ This is one simple example of why knowledge of the layers of a software stack ar
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Create 6 separate `forever` loops, each one containing `showNumber()` with one of the numbers n = 1, 3, 5, 7, 9, 11, 13. Describe the behavior. Can you see all the numbers clearly?  
+1. `[<lernact-prac>]`Create 6 separate `forever` loops, each one containing `showNumber()` with a different one of the numbers n = 1, 3, 5, 7, 9, 11, 13. Describe the behavior. Can you see all the numbers clearly?  
 2. `[<lernact-prac>]`Modify the previous program to show the either n or n + 1 toggled by pressing button A. Describe the behavior. How soon do the numbers switch after you press the button?  
 3. `[<lernact-prac>]`Modify the previous program, adding a random `pause()` between 300 and 1200 ms after `showNumber()`. Describe the behavior. Can you see the numbers our of order?   
 
@@ -380,41 +380,180 @@ In the [Lab Notebook](README.md):
 
 ##### Out-of-bound coordinates
 
-- with `led.plot` and `led.unplot`  
-- not with `LedSprite` (identify code lines in `game.ts` or elsewhere restricting coordinates)  
+`[<lernact-rd>]`The screensavers program is largely meant as a culminating programming experience, but a close second reason for it is to expose the programmer to some of the manifestations of the functioning of the software stack. The most readily observable telltales are in the LED matrix dynamics of complex randomized behavior demanded by the various screensavers.
+
+One of the easiest discernable difference between two seemingly equivalent programming expressions is that the functions `led.plot()` and `led.unplot()` accept out-of-bound coordinates, while the constructor and other methods of the `game.LedSprite` class do not. The former are `[<cept>]`_low-level functionality_, directly connected to the physical turning on and off of the LEDs, while the latter is part of the `game` namespace, itself part of the pxt platform underlying the MakeCode environment and the TS runtime, which imposes extra constraints in order to focus on the `[<cept>]`_high-level functionality_ of a micro:bit game. Here, for example, are the lines of the `game.LedSprite` constructor, which enforce one of these constraints:
+```javascript
+// Example 12.1.1
+
+namespace game {
+
+    // namespace data and functions
+    
+    export class LedSprite {
+        private _x: number;
+        private _y: number;
+        private _dir: number;
+        private _brightness: number;
+        private _blink: number;
+        private _enabled: boolean;
+
+        constructor(x: number, y: number) {
+            this._x = Math.clamp(0, 4, x);             // <-- clamp to range [0, 4]
+            this._y = Math.clamp(0, 4, y);             // <-- clamp to range [0, 4]
+            this._dir = 90;
+            this._brightness = 255;
+            this._enabled = true;
+            init();
+            _sprites.push(this);
+            plot();
+        }
+    }
+}
+```
 
 ##### Smooth graphics
 
-- don't use `pause()`, `show*()` for smooth graphics  
-  - fiber states and lifecycle  
-- `clearScreen()`, if used sparingly, is okay (it's fast)  
+The screensaver sub-programs look the best when the graphics are smooth. One of the ways to achieve that is to refrain from using the methods in the `basic` namespace, in particular the `show...()` and `plot...()` methods as well as the `pause()`, the former because they are slow, and the latter because it adds the uncertainty when the fiber that was put to sleep will run again. The only guarantee that `pause()` gives is that the fiber will not restart _earlier_ than the time argument in ms. So, for smooth graphics, one should try to handle most of the lighting and timing of the screensaver, even if that means letting go of the comfort and ease of the functions exported by the `basic` namespace.
+
+One `basic` function which is relatively safe to use is `basic.clearScreen()`, because it is fast and as basic as `led.plot()` and `led.unplot()`. In fact, it is much faster than a loop to `led.unplot()` all lit-up LEDs.
 
 ##### Speed and scheduling
 
-- why do we need `pause()` after `clearScreen()`?
-  ```javascript
-  while (true) {
-      if (isHeart) {                                             
-          basic.showIcon(IconNames.Heart)
-      } else {
-          basic.showIcon(IconNames.Butterfly)
-      }
-      basic.pause(100)
-      basic.clearScreen()
-      basic.pause(100)                             // THIS IS REQUIRED TO SEE THE ICON BLINK
-  }
-  ```
+Using `basic.clearScreen()` may result in behavior that is both unexpected and hard to debug at first. Look at the following example:
+```javascript
+// Example 12.1.2
+
+while (true) {
+    if (isHeart) {                                             
+        basic.showIcon(IconNames.Heart)
+    } else {
+        basic.showIcon(IconNames.Butterfly)
+    }
+    basic.pause(100)
+    basic.clearScreen()
+    basic.pause(100)                             // THIS IS REQUIRED TO SEE THE ICON BLINK
+}
+```
+Because `showIcon()` is slow but `clearScreen()` is fast, the will be no detectable interval between the call to `basic.clearScreen()` and the subsequent call to `basic.showIcon()` in the loop, requiring an extra `basic.pause()` to be inserted. This may or may not affect the smoothness of a screensaver, so it pays to be aware of it.
 
 ##### Mod-based timing
+
+One method to smooth out graphics, especially when there are multiple independent objects moving in randomized trajectories to create the visual effect of the screensaver, is `[<cept>]`_mod-base timing_. This is a way to avoid using `pause()` but still be able to have minute control over the relative timing of the behavior of different objects. It most often applies to the `move()` method of a screensaver object class (e.g. `Raindrop`, `BouncingMarble`, etc.), though it may be applied also in other methods, as well as the main loop. The basic premise is to control the `[<cept>]`_responsiveness_ of the `move()` method, as shown in the following example:
+```javascript
+// Example 12.1.3
+
+class Raindrop {
+    x : number
+    y : number
+    z : number             // virtual 3rd dimension (aka depth, distance)
+    counter : number       // helper variable to implement relative timing
+
+    // constructor and methods
     
-- mod-based timing  
-  - `rain`  
-  - `bouncing_marbles`  
+    move() : void {
+        if (this.counter % this.z == 0) {
+            
+            // perform "motion"
+            
+            this.counter = 0        // <-- restart counter
+        }
+        this.counter ++             // <-- increment counter
+    }
+}
+
+const NUM_RAINDROPS : number = 10
+let rain : Raindrop[] = []
+for (let i=0; i<NUM_RAINDROPS; i++) rain.push(new Raindrop(...))
+
+forever(() => {
+    for (let i=0; i<rain.length; i++) rain.move()      // <-- call move on all Raindrop objects
+})
+```
+Notice that `move()`, while called on each object every time through the `forever` loop, will actually perform the motion **only periodically** with period equal to the value of the 3rd dimension `z`.
+
+The only drawback of using this timimg method for smoothness is that it might potentially:
+1. Invlove a lot of manual tuning (e.g. the `BouncingMarble` trajectory), which is never good in programming and engineering in general.  
+2. Exacerbate the timing mismatch between the MakeCode simulator and the actual micro:bit device.
 
 ##### Frame-based display
+
+Very smooth graphics can be achieved with a complex screensaver by using `[<cept>]`_frame-based display_. Frames are the still images that compose a video. We usually don't see separate frames because they change at a `[<cept>]`[_frame rate_](https://www.techsmith.com/blog/frame-rate-beginners-guide/) sufficient to create the visual perception of uninterrupted motion.
+
+The key to the implementation of a frame-based screensaver is that each position in the image (25 in all for the micro:bit) has to be modified, if necessary, _between_ the frames which are shown (e.g. `basic.plotLeds()` or a nested `for` loop of `led.plot()`). The following is a forward-looking example of one possible approach to the implementation of a frame-based implementation of the `slytherin` screensaver, which is the object of the practice tasks below:
+```javascript
+// Example 12.1.4
+
+class Snake {
+    private _body : number[][]       // [x, y] positions, _body[0] is head
+    private startLen : number        // _body.length
+    private _color : number          // brightness
+    private alive : boolean          // not killed yet
+    private step : number            // for turnDelay
+    private dir : Heading            // current direction of motion
+    private nest : Nest              // nest controls the snakes
     
-- _frame_-based display for speed and smoothness  
- - 3d array for `slytherin`  
+    // constructor and methods
+    
+    slither() {
+    
+        // implementation of snake-like motion
+        
+    }
+}
+
+class Nest {
+    occupancy : Snake[][][]
+    snakes : Snake[]
+
+    constructor() {
+        this.occupancy = [
+            [[], [], [], [], []],
+            [[], [], [], [], []],
+            [[], [], [], [], []],
+            [[], [], [], [], []],
+            [[], [], [], [], []],
+        ]
+        this.snakes = []
+    }
+
+    // other methods
+    
+    show_snakes() {
+        for (let x=0; x<5; x++) {
+            for (let y=0; y<5; y++) {
+                led.unplot(x, y)
+                let l : number = this.occupancy[x][y].length
+                if (l > 0) {
+                    // show heads at max brightness
+                    let s : Snake = this.occupancy[x][y][l-1]
+                    led.plotBrightness(x, y, s.is_head(x, y) ? s.color + 50 : s.color)
+                }
+            }
+        }
+    }
+}
+```
+The 3-dimensional `occupancy` array holds arrays of `Snake` objects for each (x, y) position. One snake occupies more than one position, so belongs to more than one position array:
+```
+// Example 12.1.5
+
+      0      1      2      3      4
+  ------------------------------------
+0 |      |   1  |      |      |      | 
+  ------------------------------------
+1 |      |   1  |  1   |      |      | 
+  ------------------------------------
+2 |      |   2  |  1,2 |      |      | 
+  ------------------------------------
+3 |      |   2  |      |      |      | 
+  ------------------------------------
+4 |      |   2  |   2  |      |      | 
+  ------------------------------------
+```
+In this sketch of an occupancy array, there are 2 snakes, #1 and #1. Snake #1 occupies 4 positions and its body is `[[1, 0], [1, 1], [2, 1], [2, 2]]`, while snake #2 occupies 5 positions and its body is `[[2, 2], [1, 2], [1, 3], [1, 4], [2, 4]]`. The snakes move between calls to `show_snakes()` just like the `Raindrop.move` method was `this.hide(); this.y++; this.show()`, but this time all the snake motions that we want perform at the same time has to happen between the `frames`, represented by `show_snakes`. 
+
+Note that this implementation is quite complex and is not necessary for getting the 1 point for this step.
  
 ##### Simulator fidelity revisited
 
