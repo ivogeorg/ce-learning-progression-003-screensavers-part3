@@ -312,28 +312,52 @@ The [software](https://tech.microbit.org/software/) section of the [technical do
 
 ##### Fiber scheduling 
 
-- [reactive system](https://makecode.microbit.org/device/reactive)  
-- part of the micro:bit runtime (DAL)  
-  - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
-  - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
-  - fiber calls in [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext), [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext)    
-- **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
-  - Issues of speed, memory, etc.  
-  - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
-  - (Brendan) Does a time slice have to end for event handling to proceed?  
+One of the most important functions of a runtime or an operating-system layer of the software stack is `[<cept>]`_scheduling_, the process of arranging various program components to execute in some order. Schedulable program components are called `[<cept>]`_threads_. While several threads can be part of the same program, they can be executed independently of each other. Look at the following screenshot of a macOS Activity Monitor window:
 
-##### Registrant functions 
+<img src="images/activity-monitor.png" alt="Programs, processes, and threads" width="800" />
 
-- registrant functions and funcion arguments  
-- `basic`  
-- `input`  
-- etc.  
-- Why you shouldn't have event handling in a `forever` loop  
-- How is `pause` executed and what is affected (e.g. other repeated behavior, event handling, etc.)  
-  - `pause()` should be avoided, especially with multiple `forever()` loops  
-  - `pause` calls `fiber_sleep(ms);`, so depending on what that does and what a fiber is executing, and how fibers are assigned, pause may only be blocking one fiber and may or may not have implications on the global dynamics   
-    - [micro:bit runtime docs](https://lancaster-university.github.io/microbit-docs/advanced/)  
-    - [fiber-sleep package](https://github.com/jcoreio/fiber-sleep) (the `Fibre` object calls `yield`)   
+Notice the following:
+1. The first column is called **Processes** rather than programs. `[<cept>]`_Processes_ are activated executable programs. In contrast, unactivated `[<cept>]`_programs_ are just unopened files.  
+2. The column **Threads** shows the number of threads being executed for each of the processes. There is no process that has only one thread!  
+
+Threads are the units of scheduling. They have a lifecycle of several states, as shown in the following image (notice that _scheduling_ is an operation that changes the state of the thread):
+
+<img src="images/thread-states.png" alt="Thread states" width="600" />
+
+[[Image credit](https://medium.com/@dreamume/kernel-thread-states-9a8c877b3fc2)]
+
+`[<lernact-rd>]`The micro:bit reference has a page that explains [how scheduling is performed for the micro:bit](https://makecode.microbit.org/device/reactive), along with examples of handling events. _It is the most important part of reading in this learning progression as it is the first one in which we treat the micro:bit as a computer rather than an entertaining toy._
+
+The scheduling is done in the TS runtime layer, based on a computational capability provided by the micro:bit runtime (DAL) layer. The unit of scheduling provided by the dal is called a `Fiber`, as it is a `[<cept>]`_lightweight_ (meaning providing more limited functionality) thread. The TS runtime uses in its code computational artifacts provided in the DAL. The following links give a glimpse into the code of the two layers, invloved in fiber scheduling:
+1. micro:bit runtime (DAL):
+   1. [`MicroBitFiber.h`](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h) declares the scheduling machinery that is to be exposed.  
+   2. [`MicroBitFiber.cpp`](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp) is the source code of the implementation.  
+2. TypeScript runtime:
+   1. Fiber calls in the [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext) libraries.  
+   2. Fiber calls in the [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext) libraries.      
+
+All the issues of programming with multiple threads (aka `[<cept>]`_multithreading_) are beyond the scope of this learning progression, but it is important to know that they are the main units of scheduling and execution, and thus have to do with, among others:
+1. Issues of program speed.
+2. Issues of memory utilization.
+3. Issues of thread safety. (Usually due to `[<cept>]`_non-deterministic_ splitting & rearrangement of code portions.)  
+
+##### Events revisited 
+
+The [Reactive system](https://makecode.microbit.org/device/reactive) reference page gave an example of how a button press is handled. The whole process involves not only the full software stack, but the `[<cept>]`_full stack_ of the micro:bit, which includes the hardware on top of which the software stack lays. (See the diagram in the [micro:bit software-stack blog post]((https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)). The full account of the traversal of the full stack of the reaction to an external event (e.g. button pressed, a gesture made, a signal receieved over radio or a GPIO pin), from the detection of the signal which generates a processor interrupt to the way your program is informed of the event and reacts to it, is also beyond the scope of this learning progression. We will only revisit the top layer, namely the `[<cept>]`_registrant functions_.
+
+Examples of registrant functions are `input.onButtonPressed()`, `input.onGuesture()`, and `pins.onPulsed()`, among others. These functions register `[<cept>]`_event handlers_ by providing functions to be executed for specific events. They take as arguments the event-handler functions that we write, as in:
+```javascript
+// Example 11.1.1
+
+let turn : Direction = Direction.Right
+
+input.onButtonPressed(  Button.A,   () => { turn = Direction.Left; }  )
+```
+Notice the following:
+1. The registrant function is `input.onButtonPressed` and is registering an event-handler for the event of button A having been pressed (note, and _released_).  
+2. The two arguments of the registrant function are the name of the button from the `enum` type `Button`, and the event-handler code wrapped in an anonymous function. _Note that `() => { }` is just a lazy shortcut for `function () { }` and widely used in JavaScript._  
+3. The registrant function is _in the global scope_ (meaning the top level of the program), and not enclosed in a `forever`, a function, or a class. If you have read the [Reactive system](https://makecode.microbit.org/device/reactive), you will know that **you should never have event handling in a `forever` loop** or other nested scope. First, it doesn't make sense, because the event handling mechanism has an execution protocol which is _defined sufficiently_ by a free-standing registrant function, and over which you have _no further control_. Second, it makes your program extremely hard to read. Lastly, it creates false impressions in you that you have extra control over event handling.
+4. The event handling code is _minimal_. The [Reactive system](https://makecode.microbit.org/device/reactive) reference page also shows that the even handler `[<cept>]`_preempts_ (meaning it inserts inself in front of) the current fiber which is running, making its execution timing unpredictable and possibly making the display dynamics less smooth.
 
 ##### `forever` vs `while`
 
