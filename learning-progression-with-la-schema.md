@@ -557,10 +557,13 @@ Note that this implementation is quite complex and is not necessary for getting 
  
 ##### Simulator fidelity revisited
 
-- simulator vs device  
-  - manual fine-tuning  
-  - dependency on code complexity  
-  - efficient vs inefficient code  
+The one-to-one correspondence between what we see for the same program in the MakeCode simulator and the micro:bit device, may depend on several factors:
+1. Level of implementation of the particular behavior programmed in the simulator. (For example, last year there was limited simulation of the functions in the `pins` namespace, but the capabilities have increased markedly since. More on `pins` in a later progression.)  
+2. The complexity of your code and the difference between the `[<cept>]`_execution path_ lengths for different branches and/or cases of the program. (For example, depending on the details of your implementation of the `bouncing_sprites` screensaver, the rate of motion along the trajectory of the marbles might depend on how many marbles are being released at the same time.)  
+3. The _level_ of code that you use, namely TS-runtime supported or not (remember `forever` vs `while).
+4. The efficiency of your code. As we have seen, there are often multiple ways to implement the same behavior, but some implementations can `[<cept>]`_scale_ with the size of the problem, while others cannot.   
+
+These are all considerations that a programmer grows to consistently make from one project to another, and this learning progression was meant to give you a glimpse into them in preparation for your professional carrer as a computer engineer.
 
 #### 2. Apply
 [[toc](#table-of-contents)]
