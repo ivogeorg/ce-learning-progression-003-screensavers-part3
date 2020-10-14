@@ -290,22 +290,23 @@ In the [Lab Notebook](README.md):
 `[<lernact-rd>]`As we have mentioned already, the software that runs (on) the micro:bit is not `[<cept>]`_monolithic_, but layered, with the layers forming a `[<cept>]`_stack_, which we call `[<cept>]`_software stack_. A stack is such a structure, data or physical, in which every element (layer) isolates completely the elements above and below it. In software engineering, that is, writing large system programs, such an organization follows the important designs principle of `[<cept>]`_uncoupling_ (keeping apart components which should be separate) and `[<cept>]`_abstraction_ (performing increasingly integrated operations at each higher layer).
 
 The software stack of the micro:bit consists of 3 main layers (see the [diagram](#gamets) in an earlier step):
-1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system).    
+1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system). This is the highest-abstraction layer and is responsible for translating the TS program into computational artifacts that can be handled by the micro:bit device, among those:    
    - arrays  
-   - classes & objects
-     - virtual tables  
-     - memory management
+   - classes & objects, including:  
+     - `[<cept>]`_virtual tables_ for `[<cept>]`_polimorphic methods_  
+     - memory management  
    - functions  
-   - [Static TypeScript paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/09/static-typescript-draft2.pdf) but _where is the code?_    
-2. [micro:bit runtime](https://lancaster-university.github.io/microbit-docs/).  
+   You can read about these and more in the [Static TypeScript paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/09/static-typescript-draft2.pdf) which describes the implementation of the [subset of TypeScript implemented for the MakeCode environment](https://makecode.com/language) in detail.      
+2. [micro:bit runtime](https://lancaster-university.github.io/microbit-docs/). This is the middle layer and is responsible for exposing various computational capabilities of the micro:bit to a programming language runtime for TypeScript, [MakeCode Python](https://support.microbit.org/support/solutions/articles/19000111744-makecode-python-and-micropython), or [MicroPython](https://microbit-micropython.readthedocs.io/en/v1.0.1/). Among the exposed capabilities are: 
    - scheduling  
-   - devices  
-   - LEDs, etc.  
-3. [Mbed operating system](https://os.mbed.com/).  
-   - [Nordic SDK](https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK)    
+   - device `[<cept>]`_drivers_ (small programs specifically focused on running a sensor, an actuator, or other device)      
+   - the 5x5 LED matrix  
+3. [Mbed](https://os.mbed.com/) `[<cept>]`_operating system_. This is the lowest level and is responsible for overall management of the computational resources of the micro:bit device, including:  
    - security foundations  
    - cloud management services  
-   - `[<cept>]`_drivers_ for sensors, I/O devices, and networking    
+   - drivers for sensors, I/O devices, and networking    
+   - hardware abstraction layer (HAL) (the HAL is an instance of _uncoupling_ and _abstraction_, allowing the same general functionality to run on millions of different devices)  
+   An important portion of the Mbed layer is the [Nordic Semiconductor Software Development Kit](https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK), which is a collection of programs and development tools for the most important hardware component of the micro:bit, the `[<cept>]`_application processor_. More on the [hardware stack](https://tech.microbit.org/hardware/) of the micro:bit in a later learning progression.  
 
 The [software](https://tech.microbit.org/software/) section of the [technical documentation](https://tech.microbit.org) of the micro:bit is a good source of detail on these stack components. A full study of the software stack is beyond the scope of this learning progression, but you can read a more in-depth descrition in this [blog post](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/).
 
