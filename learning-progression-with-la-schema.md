@@ -301,10 +301,6 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
   - mbed OS  
     - drivers  
     - processor development kit  
-- **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
-  - Issues of speed, memory, etc.  
-  - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
-  - (Brendan) Does a time slice have to end for event handling to proceed?  
 
 
 ##### Fiber scheduling 
@@ -314,9 +310,10 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
   - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
   - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
   - fiber calls in [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext), [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext)    
-- threads  
-- fibers  
-- scheduling  
+- **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
+  - Issues of speed, memory, etc.  
+  - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
+  - (Brendan) Does a time slice have to end for event handling to proceed?  
 
 ##### Registrant functions 
 
@@ -345,7 +342,6 @@ simulator fidelity | yes | no
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-**TODO: Experiments?**  
 1. `[<lernact-prac>]`Create 6 separate `forever` loops, each one containing `showNumber()` with one of the numbers n = 1, 3, 5, 7, 9, 11, 13. Describe the behavior. Can you see all the numbers clearly?  
 2. `[<lernact-prac>]`Modify the previous program to show the either n or n + 1 toggled by pressing button A. Describe the behavior. How soon do the numbers switch after you press the button?  
 3. `[<lernact-prac>]`Modify the previous program, adding a random `pause()` between 300 and 1200 ms after `showNumber()`. Describe the behavior. Can you see the numbers our of order?   
@@ -365,6 +361,7 @@ In the [Lab Notebook](README.md):
 4. Link to a demo video showing the execution of the program from 11.2.2.  
 5. Link to the program from 11.2.3 and describe its behavior.  
 6. Link to a demo video showing the execution of the program from 11.2.3.  
+
 
 ### 12. Matrix dynamics  
 [[toc](#table-of-contents)]
