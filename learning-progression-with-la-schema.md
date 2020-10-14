@@ -290,9 +290,20 @@ In the [Lab Notebook](README.md):
 `[<lernact-rd>]`As we have mentioned already, the software that runs (on) the micro:bit is not `[<cept>]`_monolithic_, but layered, with the layers forming a `[<cept>]`_stack_, which we call `[<cept>]`_software stack_. A stack is such a structure, data or physical, in which every element (layer) isolates completely the elements above and below it. In software engineering, that is, writing large system programs, such an organization follows the important designs principle of `[<cept>]`_uncoupling_ (keeping apart components which should be separate) and `[<cept>]`_abstraction_ (performing increasingly integrated operations at each higher layer).
 
 The software stack of the micro:bit consists of 3 main layers (see the [diagram](#gamets) in an earlier step):
-1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system).  
+1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system).  (runtime vs compiler!!!)  
+   - arrays  
+   - classes & objects
+     - virtual tables  
+   - functions  
+   - [Static TypeScript paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/09/static-typescript-draft2.pdf) but _where is the code?_    
 2. [micro:bit runtime](https://lancaster-university.github.io/microbit-docs/).  
+   - scheduling  
+   - devices  
+   - LEDs, etc.  
 3. [Mbed operating system](https://os.mbed.com/).  
+   - ???  
+   - Nordic HDK/SDK  
+   - drivers  
 
 - [micro:bit software](https://tech.microbit.org/software/)  
 - [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
@@ -338,6 +349,7 @@ condition | no | yes
 `break` | no | yes
 scheduling | yes | no
 simulator fidelity | yes | no
+
 
 #### 2. Apply
 [[toc](#table-of-contents)]
