@@ -290,10 +290,11 @@ In the [Lab Notebook](README.md):
 `[<lernact-rd>]`As we have mentioned already, the software that runs (on) the micro:bit is not `[<cept>]`_monolithic_, but layered, with the layers forming a `[<cept>]`_stack_, which we call `[<cept>]`_software stack_. A stack is such a structure, data or physical, in which every element (layer) isolates completely the elements above and below it. In software engineering, that is, writing large system programs, such an organization follows the important designs principle of `[<cept>]`_uncoupling_ (keeping apart components which should be separate) and `[<cept>]`_abstraction_ (performing increasingly integrated operations at each higher layer).
 
 The software stack of the micro:bit consists of 3 main layers (see the [diagram](#gamets) in an earlier step):
-1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system).  (runtime vs compiler!!!)  
+1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system).    
    - arrays  
    - classes & objects
      - virtual tables  
+     - memory management
    - functions  
    - [Static TypeScript paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/09/static-typescript-draft2.pdf) but _where is the code?_    
 2. [micro:bit runtime](https://lancaster-university.github.io/microbit-docs/).  
@@ -301,18 +302,12 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
    - devices  
    - LEDs, etc.  
 3. [Mbed operating system](https://os.mbed.com/).  
-   - ???  
-   - Nordic HDK/SDK  
-   - drivers  
+   - [Nordic SDK](https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK)    
+   - security foundations  
+   - cloud management services  
+   - `[<cept>]`_drivers_ for sensors, I/O devices, and networking    
 
-- [micro:bit software](https://tech.microbit.org/software/)  
-- [software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)  
-  - TS runtime  
-  - micro:bit runtime (aka DAL)  
-  - mbed OS  
-    - drivers  
-    - processor development kit  
-
+The [software](https://tech.microbit.org/software/) section of the [technical documentation](https://tech.microbit.org) of the micro:bit is a good source of detail on these stack components. A full study of the software stack is beyond the scope of this learning progression, but you can read a more in-depth descrition in this [blog post](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/).
 
 ##### Fiber scheduling 
 
@@ -341,7 +336,7 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
 
 ##### `forever` vs `while`
 
-`forever` function vs `while` loop  
+The `basic.forever()` function is under special management of the TypeScript runtime, but the `while () {}` loop is just a basic language component and is handled without any translation through the TR and micro:bit layers of the software stack. This results in some notable differences in the program execution behavior of code the same code, passed as an anonymous function argument to a `forever` function, on one hand, and wrapped in a simple `while` loop, on the other. The following table summarizes the differences:
 
 feature | `forever` | `while`
 -- | -- | --
@@ -349,6 +344,8 @@ condition | no | yes
 `break` | no | yes
 scheduling | yes | no
 simulator fidelity | yes | no
+
+This is one simple example of why knowledge of the layers of a software stack are important to a computer engineer. The practice tasks below are supposed to provide some direct experience with the particular handling of `forever` loops by the TS runtime.
 
 
 #### 2. Apply
