@@ -71,7 +71,7 @@ The way MakeCode exposes libraries like [`game.ts`](https://github.com/microsoft
 
 The TS runtime is used in the in-browser MakeCode editor and simulator, but is also inserted as part of the generated HEX file that is written to the micro:bit device. You may notice that the comments above the programming artifacts included in the [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) library are highly structured and look like code themselves. These are called `[<cept>]`_annotations_ and are used for various purposes, including presentation, linking in a programming environment, documentation generation, etc. The MakeCode editor, which presents artifacts in both Blocks and TS, these annotations are an inseparable part of creating such a straightforward programming environment. 
 
-When we said that the [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) library is self-contained, this was meant to mean that it defines the game package in its entirety. That is, there aren't two different libraries that have to be used in tandem to create a game for the micro:bit. This said, the library itself depends on artifacts defined in other libraries.
+When we said that the [`game.ts`](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts) library is self-contained, this was meant to indicate that it defines the game package in its entirety. That is, there aren't two different libraries that have to be used in tandem to create a game for the micro:bit. This said, the library itself depends on artifacts defined in other libraries.
 
 ##### enum types
 
@@ -88,7 +88,7 @@ let b : number = sprite.get(LedSpriteProperty.Brightness)
 sprite.set(LedSpriteProperty.Brightness, b/2)
 ```
 
-An enumerated type is a programming artifact which has attributed of arrays and classes at the same time, though it is neither. It is multi-valued like an array, and it defines a type like a class. It is an ordered collection of names, which in themselves correspond to integers. All names can have their numeric value assigned explicitly, or they take the incremented value of the previous name in the collection:
+An enumerated type is a programming artifact which has attributes of arrays and classes at the same time, though it is neither. It is multi-valued like an array, and it defines a type like a class. It is an ordered collection of names, which in themselves correspond to integers. All names can have their numeric value assigned explicitly, or they take the incremented value of the previous name in the collection:
 ```javascript
 // Example 9.1.2
 
@@ -96,7 +96,7 @@ enum CommodityValue { Iron = 100, Silver = 250, Gold = 350 }
 enum Bird { Sparrow = 0, Hawk, Eagle, Finch, Osprey, Canary }  // e.g. Bird.Finch equals 3
 ```
 
-Notice that the two enumerated types are defined _outside_ the namespace `game`. Thus, they can be used freely for other purposes than the ones in defining a game environment. It is conventional to put types in the top-level scope of a program (or, in this case, library).
+Notice that the two enumerated types are defined _outside_ the namespace `game`. Thus, they can be used freely for purposes other than the ones which define a game environment. It is conventional to put types in the top-level scope of a program (or, in this case, library).
 
 ##### Namespace `game`
 
@@ -186,11 +186,11 @@ We are already working with Git. You are reading a Markdown file in a _private_ 
 
 ##### Git remote and local
 
-Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github and look at the underlying Git operations performed on it on a _local_ `[<cept>]`_clone_ of the repository.
+Working directly with the Github website, we are using Git only _indirectly_, because all Git operations are handled for us by Github. To learn Git, we need to take our code out of Github and look at the underlying Git operations performed on it in a _local_ `[<cept>]`_clone_ of the repository.
 
 This step asks you to install the `[<cept>]`_command-line_ [Git client](https://git-scm.com/), a program which can work with _remote_ servers where Git repositories are maintained. Github is the largest such server. 
 
-`[<lernact-see>]`Git was meant to be a distributed source control system so it was designed with the notion of `[<cept>]`_remote_ and `[<cept>]`_local_ repositories. In our case, the remote repositories are on Github, and the local are copies of the remote ones on our oun computers. There are three scenarios of remote-local work we will cover:
+`[<lernact-see>]`Git was meant to be a distributed source control system so it was designed with the notion of `[<cept>]`_remote_ and `[<cept>]`_local_ repositories. In our case, the remote repositories are on Github, and the local are copies of the remote ones on our own computers. There are three scenarios of remote-local work we will cover:
 1. **Scenario 1: Github only**. It is explained and shown in this [demo video](https://msudenver.yuja.com/V/Video?v=1991009&node=7634464&a=961358564&autoplay=1).   
 2. **Scenario 2: Github and local**. It is explained and shown in this [demo video](https://msudenver.yuja.com/V/Video?v=1991697&node=7636328&a=1013082438&autoplay=1).    
 
@@ -202,10 +202,10 @@ This step asks you to install the `[<cept>]`_command-line_ [Git client](https://
 
 ##### Git commands
 
-Follow a quick review of the most fundamental Git commans, with links to the documentation:
+Follow a quick review of the most fundamental Git commands, with links to the documentation:
 1. [`git init`](https://git-scm.com/docs/git-init): Creates an empty local Git repsitory. Usually the first command when starting from local.    
 2. [`git clone`](https://git-scm.com/docs/git-clone): Clones a repository into a new directory. This is what we use to make a local copy of a repository already existing on Github.     
-3. [`git remote`](https://git-scm.com/docs/git-remote): Manage a set of tracked repositories. In particular, can point a local reposotory to its remote. It has many options.    
+3. [`git remote`](https://git-scm.com/docs/git-remote): Manage a set of tracked repositories. In particular, can point a local reposotory to its remote counterpart. It has many options.    
 4. [`git status`](https://git-scm.com/docs/git-status): Reports the status of the working tree. In particular, reports modifications of tracked files and newly created untracked files.  
 5. [`git add`](https://git-scm.com/docs/git-add): Add file(s) to tracking `[<cept>]`_index_. In other words, this includes a file(s) to version control.     
 6. [`git commit`](https://git-scm.com/docs/git-commit): Record changes to a repository. It requires a commit message (with option `-m`), which should be a short informative summary of what changed since last commit.     
@@ -216,7 +216,7 @@ Follow a quick review of the most fundamental Git commans, with links to the doc
 
 ##### Git branch and merge
 
-In the image in [Git remote and local](#git-remote-and-local) section image, we saw the command `checkout` but we didn't explain it. One of the most important features of Git is that it allows a team to isolate the development of new features from the main project until they are sufficiently mature. This is achieved by `[<cept>]`_branching_ off the main project (aka master), which can be throught as the `[<cept>]`_trunk_. Branching (aka **Fork** in Github), is essentially a copy of the repository under a new name, which however is still tracked in parallel with the trunk. At some point in the future, the branch developers may request that their code is `[<cept>]`_merged_ into the trunk. Merge is done when the branch code is sufficiently mature and may require several iterations to be brought into consistence with the trunk, which may also have changed and/or been merged with other branches. This is illustrated in the following simple diagram:
+In the image in [Git remote and local](#git-remote-and-local) section image, we saw the command `checkout` but we didn't explain it. One of the most important features of Git is that it allows a team to isolate the development of new features from the main project until they are sufficiently mature. This is achieved by `[<cept>]`_branching_ off the main project (aka master), which can be thought of as the `[<cept>]`_trunk_. Branching (aka **Fork** in Github), is essentially a copy of the repository under a new name, which however is still tracked in parallel with the trunk. At some point in the future, the branch developers may request that their code is `[<cept>]`_merged_ into the trunk. Merge is done when the branch code is sufficiently mature and may require several iterations to be brought into consistence with the trunk, which may also have changed and/or been merged with other branches. This is illustrated in the following simple diagram:
 
 <img src="images/git-branch-merge.png" alt="Simple branch and merge diagram" width="600" />
 
@@ -227,7 +227,7 @@ The most relevant Git commands which support branching and merging are:
 2. [`git checkout`](https://git-scm.com/docs/git-checkout): Switch branches. Updates the working tree.    
 3. [`git switch`](https://git-scm.com/docs/git-switch): Switch branches.    
 4. [`git merge`](https://git-scm.com/docs/git-merge): Join two or more development histories together.    
-5. [`git tag`](https://git-scm.com/docs/git-tag): Manipulate tags. Tags are names for particular points in the development history of a project branch. They are used to indicate a major feature is completed, a significant rework has been completed, an early release is ready for testing, etc. See an example of a [Git tag](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0) on a Github repository. Github creates code packages and some additional features around tags and calls this extended feature `[<cept>]`_Releases_. This is a common term in software development, and you have experienced it at least once when, for example, your computer or phone operating system updated to a new version.    
+5. [`git tag`](https://git-scm.com/docs/git-tag): Manipulate tags. Tags are names for particular points in the development history of a project branch. They are used to indicate that a major feature is completed, a significant rework has been completed, an early release is ready for testing, etc. See an example of a [Git tag](https://github.com/ivogeorg/ce-learning-progression-002-bouncing-sprites/releases/tag/v1.0) on a Github repository. Github creates code packages and some additional features around tags and calls this extended feature `[<cept>]`_Releases_. This is a common term in software development, and you have experienced it at least once when, for example, your computer or phone operating system updated to a new version.    
 6. [`git log`](https://git-scm.com/docs/git-log): Shows commit logs. On Github, this is done by clicking on **Commits**.    
 
 <img src="images/git-tag.png" alt="Master marked with version tags" width="600" />
@@ -293,7 +293,7 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
 1. TypeScript [runtime](https://en.wikipedia.org/wiki/Runtime_system). This is the highest-abstraction layer and is responsible for translating the TS program into computational artifacts that can be handled by the micro:bit device, among those:    
    - arrays  
    - classes & objects, including:  
-     - `[<cept>]`_virtual tables_ for `[<cept>]`_polimorphic methods_  
+     - `[<cept>]`_virtual tables_ for `[<cept>]`_polymorphic methods_  
      - memory management  
    - functions  
    You can read about these and more in the [Static TypeScript paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/09/static-typescript-draft2.pdf) which describes the implementation of the [subset of TypeScript implemented for the MakeCode environment](https://makecode.com/language) in detail.      
@@ -308,60 +308,36 @@ The software stack of the micro:bit consists of 3 main layers (see the [diagram]
    - hardware abstraction layer (HAL) (the HAL is an instance of _uncoupling_ and _abstraction_, allowing the same general functionality to run on millions of different devices)  
    An important portion of the Mbed layer is the [Nordic Semiconductor Software Development Kit](https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK), which is a collection of programs and development tools for the most important hardware component of the micro:bit, the `[<cept>]`_application processor_. More on the [hardware stack](https://tech.microbit.org/hardware/) of the micro:bit in a later learning progression.  
 
-The [software](https://tech.microbit.org/software/) section of the [technical documentation](https://tech.microbit.org) of the micro:bit is a good source of detail on these stack components. A full study of the software stack is beyond the scope of this learning progression, but you can read a more in-depth descrition in this [blog post](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/).
+The [software](https://tech.microbit.org/software/) section of the [technical documentation](https://tech.microbit.org) of the micro:bit is a good source of detail on these stack components. A full study of the software stack is beyond the scope of this learning progression, but you can read a more in-depth description in this [blog post](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/).
 
 ##### Fiber scheduling 
 
-One of the most important functions of a runtime or an operating-system layer of the software stack is `[<cept>]`_scheduling_, the process of arranging various program components to execute in some order. Schedulable program components are called `[<cept>]`_threads_. While several threads can be part of the same program, they can be executed independently of each other. Look at the following screenshot of a macOS Activity Monitor window:
+- [reactive system](https://makecode.microbit.org/device/reactive)  
+- part of the micro:bit runtime (DAL)  
+  - [header](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h)  
+  - [source](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp)  
+  - fiber calls in [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext), [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext)    
+- **threads**, fibers, and the [fiber scheduler](https://lancaster-university.github.io/microbit-docs/advanced/)  
+  - Issues of speed, memory, etc.  
+  - Thread(fiber)-unsafety: Issues of non-deterministic splitting & rearrangement of code portions   
+  - (Brendan) Does a time slice have to end for event handling to proceed?  
 
-<img src="images/activity-monitor.png" alt="Programs, processes, and threads" width="800" />
+##### Registrant functions 
 
-Notice the following:
-1. The first column is called **Processes** rather than programs. `[<cept>]`_Processes_ are activated executable programs. In contrast, unactivated `[<cept>]`_programs_ are just unopened files.  
-2. The column **Threads** shows the number of threads being executed for each of the processes. There is no process that has only one thread!  
-
-Threads are the units of scheduling. They have a lifecycle of several states, as shown in the following image (notice that _scheduling_ is an operation that changes the state of the thread):
-
-<img src="images/thread-states.png" alt="Thread states" width="600" />
-
-[[Image credit](https://medium.com/@dreamume/kernel-thread-states-9a8c877b3fc2)]
-
-`[<lernact-rd>]`The micro:bit reference has a page that explains [how scheduling is performed for the micro:bit](https://makecode.microbit.org/device/reactive), along with examples of handling events. _It is the most important part of reading in this learning progression as it is the first one in which we treat the micro:bit as a computer rather than an entertaining toy._
-
-The scheduling is done in the TS runtime layer, based on a computational capability provided by the micro:bit runtime (DAL) layer. The unit of scheduling provided by the dal is called a `Fiber`, as it is a `[<cept>]`_lightweight_ (meaning providing more limited functionality) thread. The TS runtime uses in its code computational artifacts provided in the DAL. The following links give a glimpse into the code of the two layers, invloved in fiber scheduling:
-1. micro:bit runtime (DAL):
-   1. [`MicroBitFiber.h`](https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitFiber.h) declares the scheduling machinery that is to be exposed.  
-   2. [`MicroBitFiber.cpp`](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitFiber.cpp) is the source code of the implementation.  
-2. TypeScript runtime:
-   1. Fiber calls in the [pxt-common-packages](https://github.com/microsoft/pxt-common-packages/search?q=fiber+in%3Atext) libraries.  
-   2. Fiber calls in the [pxt-microbit](https://github.com/microsoft/pxt-microbit/search?q=fiber+in%3Atext) libraries.      
-
-All the issues of programming with multiple threads (aka `[<cept>]`_multithreading_) are beyond the scope of this learning progression, but it is important to know that they are the main units of scheduling and execution, and thus have to do with, among others:
-1. Issues of program speed.
-2. Issues of memory utilization.
-3. Issues of thread safety. (Usually due to `[<cept>]`_non-deterministic_ splitting & rearrangement of code portions.)  
-
-##### Events revisited 
-
-The [Reactive system](https://makecode.microbit.org/device/reactive) reference page gave an example of how a button press is handled. The whole process involves not only the full software stack, but the `[<cept>]`_full stack_ of the micro:bit, which includes the hardware on top of which the software stack lays. (See the diagram in the [micro:bit software-stack blog post]((https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/)). The full account of the traversal of the full stack of the reaction to an external event (e.g. button pressed, a gesture made, a signal receieved over radio or a GPIO pin), from the detection of the signal which generates a processor interrupt to the way your program is informed of the event and reacts to it, is also beyond the scope of this learning progression. We will only revisit the top layer, namely the `[<cept>]`_registrant functions_.
-
-Examples of registrant functions are `input.onButtonPressed()`, `input.onGuesture()`, and `pins.onPulsed()`, among others. These functions register `[<cept>]`_event handlers_ by providing functions to be executed for specific events. They take as arguments the event-handler functions that we write, as in:
-```javascript
-// Example 11.1.1
-
-let turn : Direction = Direction.Right
-
-input.onButtonPressed(  Button.A,   () => { turn = Direction.Left; }  )
-```
-Notice the following:
-1. The registrant function is `input.onButtonPressed` and is registering an event-handler for the event of button A having been pressed (note, and _released_).  
-2. The two arguments of the registrant function are the name of the button from the `enum` type `Button`, and the event-handler code wrapped in an anonymous function. _Note that `() => { }` is just a lazy shortcut for `function () { }` and widely used in JavaScript._  
-3. The registrant function is _in the global scope_ (meaning the top level of the program), and not enclosed in a `forever`, a function, or a class. If you have read the [Reactive system](https://makecode.microbit.org/device/reactive), you will know that **you should never have event handling in a `forever` loop** or other nested scope. First, it doesn't make sense, because the event handling mechanism has an execution protocol which is _defined sufficiently_ by a free-standing registrant function, and over which you have _no further control_. Second, it makes your program extremely hard to read. Lastly, it creates false impressions in you that you have extra control over event handling.
-4. The event handling code is _minimal_. The [Reactive system](https://makecode.microbit.org/device/reactive) reference page also shows that the even handler `[<cept>]`_preempts_ (meaning it inserts inself in front of) the current fiber which is running, making its execution timing unpredictable and possibly making the display dynamics less smooth.
+- registrant functions and funcion arguments  
+- `basic`  
+- `input`  
+- etc.  
+- Why you shouldn't have event handling in a `forever` loop  
+- How is `pause` executed and what is affected (e.g. other repeated behavior, event handling, etc.)  
+  - `pause()` should be avoided, especially with multiple `forever()` loops  
+  - `pause` calls `fiber_sleep(ms);`, so depending on what that does and what a fiber is executing, and how fibers are assigned, pause may only be blocking one fiber and may or may not have implications on the global dynamics   
+    - [micro:bit runtime docs](https://lancaster-university.github.io/microbit-docs/advanced/)  
+    - [fiber-sleep package](https://github.com/jcoreio/fiber-sleep) (the `Fibre` object calls `yield`)   
 
 ##### `forever` vs `while`
 
-The `basic.forever()` function is under special management of the TypeScript runtime, but the `while () {}` loop is just a basic language component and is handled without any translation through the TR and micro:bit layers of the software stack. This results in some notable differences in the program execution behavior of code the same code, passed as an anonymous function argument to a `forever` function, on one hand, and wrapped in a simple `while` loop, on the other. The following table summarizes the differences:
+The `basic.forever()` function is under special management of the TypeScript runtime, but the `while () {}` loop is just a basic language component and is handled without any translation through the TR and micro:bit layers of the software stack. This results in some notable differences in the program execution behavior of the same code, passed as an anonymous function argument to a `forever` function, on one hand, and wrapped in a simple `while` loop, on the other. The following table summarizes the differences:
 
 feature | `forever` | `while`
 -- | -- | --
@@ -378,7 +354,7 @@ This is one simple example of why knowledge of the layers of a software stack ar
 
 1. `[<lernact-prac>]`Create 6 separate `forever` loops, each one containing `showNumber()` with a different one of the numbers n = 1, 3, 5, 7, 9, 11, 13. Describe the behavior. Can you see all the numbers clearly?  
 2. `[<lernact-prac>]`Modify the previous program to show the either n or n + 1 toggled by pressing button A. Describe the behavior. How soon do the numbers switch after you press the button?  
-3. `[<lernact-prac>]`Modify the previous program, adding a random `pause()` between 300 and 1200 ms after `showNumber()`. Describe the behavior. Can you see the numbers our of order?   
+3. `[<lernact-prac>]`Modify the previous program, adding a random `pause()` between 300 and 1200 ms after `showNumber()`. Describe the behavior. Can you see the numbers out of order?   
 
 #### 3. Present
 [[toc](#table-of-contents)]
@@ -407,7 +383,7 @@ In the [Lab Notebook](README.md):
 
 `[<lernact-rd>]`The screensavers program is largely meant as a culminating programming experience, but a close second reason for it is to expose the programmer to some of the manifestations of the functioning of the software stack. The most readily observable telltales are in the LED matrix dynamics of complex randomized behavior demanded by the various screensavers.
 
-One of the easiest discernable difference between two seemingly equivalent programming expressions is that the functions `led.plot()` and `led.unplot()` accept out-of-bound coordinates, while the constructor and other methods of the `game.LedSprite` class do not. The former are `[<cept>]`_low-level functionality_, directly connected to the physical turning on and off of the LEDs, while the latter is part of the `game` namespace, itself part of the pxt platform underlying the MakeCode environment and the TS runtime, which imposes extra constraints in order to focus on the `[<cept>]`_high-level functionality_ of a micro:bit game. Here, for example, are the lines of the `game.LedSprite` constructor, which enforce one of these constraints:
+One of the easiest discernable difference between two seemingly equivalent programming expressions is that the functions `led.plot()` and `led.unplot()` accept out-of-bound coordinates, while the constructor and other methods of the `game.LedSprite` class do not. The former are `[<cept>]`_low-level functionality_, directly connected to the physical turning on and off of the LEDs, while the latter is part of the `game` namespace, itself part of the pxt platform underlying the MakeCode environment and the TS runtime, which imposes extra constraints in order to focus on the `[<cept>]`_high-level functionality_ of a micro:bit game. Here, for example, are the lines of the `game.LedSprite` constructor, which enforces one of these constraints:
 ```javascript
 // Example 12.1.1
 
@@ -439,7 +415,7 @@ namespace game {
 
 ##### Smooth graphics
 
-The screensaver sub-programs look the best when the graphics are smooth. One of the ways to achieve that is to refrain from using the methods in the `basic` namespace, in particular the `show...()` and `plot...()` methods as well as the `pause()`, the former because they are slow, and the latter because it adds the uncertainty when the fiber that was put to sleep will run again. The only guarantee that `pause()` gives is that the fiber will not restart _earlier_ than the time argument in ms. So, for smooth graphics, one should try to handle most of the lighting and timing of the screensaver, even if that means letting go of the comfort and ease of the functions exported by the `basic` namespace.
+The screensaver sub-programs look the best when the graphics are smooth. One of the ways to achieve that is to refrain from using the methods in the `basic` namespace, in particular the `show...()` and `plot...()` methods as well as the `pause()`, the former because they are slow, and the latter because it adds the uncertainty about when the fiber that was put to sleep will run again. The only guarantee that `pause()` gives is that the fiber will not restart _earlier_ than the time argument in ms. So, for smooth graphics, one should try to handle most of the lighting and timing of the screensaver, even if that means letting go of the comfort and ease of the functions exported by the `basic` namespace.
 
 One `basic` function which is relatively safe to use is `basic.clearScreen()`, because it is fast and as basic as `led.plot()` and `led.unplot()`. In fact, it is much faster than a loop to `led.unplot()` all lit-up LEDs.
 
@@ -495,7 +471,7 @@ forever(() => {
     for (let i=0; i<rain.length; i++) rain.move()      // <-- call move on all Raindrop objects
 })
 ```
-Notice that `move()`, while called on each object every time through the `forever` loop, will actually perform the motion **only periodically** with period equal to the value of the 3rd dimension `z`.
+Notice that `move()`, while called on each object every time through the `forever` loop, will actually perform the motion **only periodically** with the period equal to the value of the 3rd dimension `z`.
 
 The only drawback of using this timimg method for smoothness is that it might potentially:
 1. Invlove a lot of manual tuning (e.g. the `BouncingMarble` trajectory), which is never good in programming and engineering in general.  
@@ -576,7 +552,7 @@ The 3-dimensional `occupancy` array holds arrays of `Snake` objects for each (x,
 4 |      |   2  |   2  |      |      | 
   ------------------------------------
 ```
-In this sketch of an occupancy array, there are 2 snakes, #1 and #1. Snake #1 occupies 4 positions and its body is `[[1, 0], [1, 1], [2, 1], [2, 2]]`, while snake #2 occupies 5 positions and its body is `[[2, 2], [1, 2], [1, 3], [1, 4], [2, 4]]`. The snakes move between calls to `show_snakes()` just like the `Raindrop.move` method was `this.hide(); this.y++; this.show()`, but this time all the snake motions that we want perform at the same time has to happen between the `frames`, represented by `show_snakes`. 
+In this sketch of an occupancy array, there are 2 snakes, #1 and #2. Snake #1 occupies 4 positions and its body is `[[1, 0], [1, 1], [2, 1], [2, 2]]`, while snake #2 occupies 5 positions and its body is `[[2, 2], [1, 2], [1, 3], [1, 4], [2, 4]]`. The snakes move between calls to `show_snakes()` just like the `Raindrop.move` method was `this.hide(); this.y++; this.show()`, but this time all the snake motions that we want perform at the same time have to happen between the `frames`, represented by `show_snakes`. 
 
 Note that this implementation is quite complex and is not necessary for getting the 1 point for this step.
  
@@ -588,17 +564,17 @@ The one-to-one correspondence between what we see for the same program in the Ma
 3. The _level_ of code that you use, namely TS-runtime supported or not (remember `forever` vs `while).
 4. The efficiency of your code. As we have seen, there are often multiple ways to implement the same behavior, but some implementations can `[<cept>]`_scale_ with the size of the problem, while others cannot.   
 
-These are all considerations that a programmer grows to consistently make from one project to another, and this learning progression was meant to give you a glimpse into them in preparation for your professional carrer as a computer engineer.
+These are all considerations that a programmer grows to consistently make from one project to another, and this learning progression was meant to give you a glimpse into them in preparation for your professional career as a computer engineer.
 
 #### 2. Apply
 [[toc](#table-of-contents)]
 
 **TODO** This is probably the most challenging screensaver. Expand to include everything learned, systematically organized into a unified software engineering experience!  
-1. `[<lernact-prac>]`Implement the Slytherin screensaver into a function called `slytherin`. Three are three tiers of implementation, where the **first tier is siffucient for full credit for this step**, and the others are **optional challenges**:
-   1. **Tier 1** A single snake moves randomly around the screen, without stepping off the screen, without wrapping around at edges, and without stepping on itself. The head of the snake should be brighter than its body. The snake's starting length (including head) should be random in the range [3, 5].  
-   2. **Tier 2** [max 5 extra step points] Multiple snakes, with different colors and random overlap.  
-   3. **Tier 3** [max 10 extra step points] Add the functionality of a _biter snake_, which bites and kills other snakes on contact (meaning its head is in a position where there are other snakes). There should be a 15% chance for a snake to be a biter. Upon being bitten, a snake disappears. A biter does not bite itself. For each snake bitten, the biter grows its tail by 1. The snakes are randomly repopulated so that a biter does not remain by itself.
-2. `[<lernact-prac>]`Integrate into `screensavers.js` with a gesture of your own choosing, and tag with `v1.2`.  
+1. `[<lernact-prac>]`Slytherin screensaver. Three levels:
+   1. [1 step point] A single snake with wrap-around and self-curl, bright head, random motion, and `turnDelay`.  
+   2. [1 + 5 extra step point] Multiple snakes, with different colors and random overlap.  
+   3. [1 + 10 step points] A 15% chance for a biter, which slithers on top of others, and kills them on contact (with head). Random repopulation.
+2. `[<lernact-prac>]`Integrate into `screensavers.js` and tag with `v1.2`.  
 
 #### 3. Present
 [[toc](#table-of-contents)]
