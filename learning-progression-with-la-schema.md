@@ -2,7 +2,48 @@
 
 This is learning progression 003 for the Fall 2020 installment of the course CPE 1040: Introduction to Computer Engineering at MSU Denver.
 
+Table of Contents
+=================
 
+* [CPE 1040 \- Fall 2020](#cpe-1040---fall-2020)
+  * [Learning Progression 003: Screensavers (Part 3)](#learning-progression-003-screensavers-part-3)
+    * [9\. Code reading](#9-code-reading)
+      * [1\. Study](#1-study)
+        * [game\.ts](#gamets)
+        * [enum types](#enum-types)
+        * [Namespace game](#namespace-game)
+        * [Exported functions](#exported-functions)
+        * [Class LedSprite](#class-ledsprite)
+      * [2\. Apply](#2-apply)
+      * [3\. Present](#3-present)
+    * [10\. Iterative development with Github](#10-iterative-development-with-github)
+      * [1\. Study](#1-study-1)
+        * [Git command line](#git-command-line)
+        * [Git remote and local](#git-remote-and-local)
+        * [Git commands](#git-commands)
+        * [Git branch and merge](#git-branch-and-merge)
+        * [Github workflow](#github-workflow)
+        * [Incremental development](#incremental-development)
+      * [2\. Apply](#2-apply-1)
+      * [3\. Present](#3-present-1)
+    * [11\. Reactive system](#11-reactive-system)
+      * [1\. Study](#1-study-2)
+        * [Software stack](#software-stack)
+        * [Fiber scheduling](#fiber-scheduling)
+        * [Events revisited](#events-revisited)
+        * [forever vs while](#forever-vs-while)
+      * [2\. Apply](#2-apply-2)
+      * [3\. Present](#3-present-2)
+    * [12\. Matrix dynamics](#12-matrix-dynamics)
+      * [1\. Study](#1-study-3)
+        * [Out\-of\-bound coordinates](#out-of-bound-coordinates)
+        * [Smooth graphics](#smooth-graphics)
+        * [Speed and scheduling](#speed-and-scheduling)
+        * [Mod\-based timing](#mod-based-timing)
+        * [Frame\-based display](#frame-based-display)
+        * [Simulator fidelity revisited](#simulator-fidelity-revisited)
+      * [2\. Apply](#2-apply-3)
+      * [3\. Present](#3-present-3)
 
 
 ## Learning Progression 003: Screensavers (Part 3)
@@ -112,7 +153,7 @@ We have already used the class `game.LedSprite`, for example, in `HaloSprite` wh
 [[toc](#table-of-contents)]
 
 1. `[<lernact-prac>]`Organize your `screensaver` namespace like the [`game.ts` library](https://github.com/microsoft/pxt-microbit/blob/master/libs/core/game.ts). Write the _main program_ at the very bottom, using the exported functions. _Do you have types outside the namespace? Do you need to export any classes?_   
-2. `[<lernact-prac>]`For each global variable, function, and class method in the namespace `screensaver`, write a descriptive comment, on the side of the variables and on top for the functions/methods. Remember the _last repository commit_ of this process.    
+2. `[<lernact-prac>]`For each global variable, function, and class method in the namespace `screensaver`, write a descriptive comment, on the side of the variables and on top for the functions/methods. Remember the _last repository commit_ that you made completing these tasks.    
 
 #### 3. Present
 [[toc](#table-of-contents)]
@@ -554,7 +595,7 @@ These are all considerations that a programmer grows to consistently make from o
 
 **TODO** This is probably the most challenging screensaver. Expand to include everything learned, systematically organized into a unified software engineering experience!  
 1. `[<lernact-prac>]`Implement the Slytherin screensaver into a function called `slytherin`. Three are three tiers of implementation, where the **first tier is siffucient for full credit for this step**, and the others are **optional challenges**:
-   1. **Tier 1** A single snake moves randomly around the screen, without stepping off the screen, without wrapping around at edges, and without stepping on itself. The head of the snake should be brighter than its body. The snake's starting length (including head) should be random in the range [3, 5].  
+   1. **Tier 1** A single snake moves randomly around the screen (in all 8 directions), without stepping off the screen, without wrapping around at edges, and without stepping on itself. The head of the snake should be brighter than its body. The snake's starting length (including head) should be random in the range [3, 6]. If the snake gets stuck in a corner (meaning there is no position for it to go next by the above rules), it dies and is removed.    
    2. **Tier 2** [max 5 extra step points] Multiple snakes, with different colors and random overlap.  
    3. **Tier 3** [max 10 extra step points] Add the functionality of a _biter snake_, which bites and kills other snakes on contact (meaning its head is in a position where there are other snakes). There should be a 15% chance for a snake to be a biter. Upon being bitten, a snake disappears. A biter does not bite itself. For each snake bitten, the biter grows its tail by 1. The snakes are randomly repopulated so that a biter does not remain by itself.
 2. `[<lernact-prac>]`Integrate into `screensavers.js` with a gesture of your own choosing, and tag with `v1.2`.  
