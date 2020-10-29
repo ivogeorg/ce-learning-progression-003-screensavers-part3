@@ -615,4 +615,7 @@ In the [Lab Notebook](README.md):
 4. Link to a demo video showing the execution of the program from 12.2.2.  
 
 ## Resources
+[[toc](#table-of-contents)]
+
 1. [Github with MakeCode](https://makecode.microbit.org/github).  
+2. [MakeCode language support](https://makecode.com/language).  
