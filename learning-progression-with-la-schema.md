@@ -44,6 +44,7 @@ Table of Contents
         * [Simulator fidelity revisited](#simulator-fidelity-revisited)
       * [2\. Apply](#2-apply-3)
       * [3\. Present](#3-present-3)
+  * [Resources](#resources)  
 
 
 ## Learning Progression 003: Screensavers (Part 3)
@@ -613,3 +614,5 @@ In the [Lab Notebook](README.md):
 3. Link to the program from 12.2.2.  
 4. Link to a demo video showing the execution of the program from 12.2.2.  
 
+## Resources
+1. [Github with MakeCode](https://makecode.microbit.org/github).  
